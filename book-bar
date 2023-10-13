@@ -1,5 +1,11 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Pro">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Federant">
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Spectral"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Federant"
+/>
 <style>
   :root {
     --darkspace: #040005;
@@ -8,7 +14,6 @@
   }
   body {
     margin: 0;
-
   }
   canvas {
     position: absolute;
@@ -16,41 +21,60 @@
   #book-container {
     height: 500px;
   }
-  .overlay{ /*flex*/
+  .overlay {
+    /*flex*/
     position: absolute;
     z-index: 2;
     color: white;
-    margin: 50px;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    justify-content: space-between;
   }
-  h1{
-    font-family: 'Federant';
+  h1 {
+    font-family: "Federant";
+    font-weight: 300;
   }
-  p{
-    font-family: 'Crimson Pro';
+  p {
+    font-family: "Spectral";
+  }
+  #bookstuff {
+    width: 50%;
+  }
+  #kindle {
+    margin-right: 100px;
   }
 </style>
 
 <body>
   <div id="book-container">
     <div class="overlay">
-    <h1>This planet will bleed you dry</h1>
-    <p>
-      Struggling to find his place in a world that sees him as another body to
-      throw into the grinder, Dezi flees his home colony after being framed for
-      a facility malfunction. He’s thrown into a world of dark luxury when he
-      lands a serving job at a high-end resort in the capital city of Mars and a
-      secretive guest selects him as his regular host. The VIP is a perennial,
-      one of the few wealthy enough to extend their lives indefinitely through a
-      blood-based treatment process, and he might be Dezi’s ticket to paying off
-      his bounty, but the mischievous immortal is as eccentric as he is
-      generous. He claims to be an authentic vampire, and he becomes Dezi’s
-      lifeline when a storm devastates the city, trapping the resort’s
-      blood-drinking clientele with a dwindling supply of mortals. The problem
-      is that accepting help from an immortal is never free, and Dezi won't
-      settle for being seen as a blood bag. He wants to be more than a toy or
-      tool to those in power, but in this ruthless city, the cost of keeping
-      your humanity can be your life.
-    </p>
+      <div id="bookstuff">
+        <h1>This planet will bleed you dry...</h1>
+        <p>
+          Struggling to find his place in a world that sees him as another body
+          to throw into the grinder, Dezi flees his home colony after being
+          framed for a facility malfunction. He’s thrown into a world of dark
+          luxury when he lands a serving job at a high-end resort in the capital
+          city of Mars and a secretive guest selects him as his regular host.
+          The VIP is a perennial, one of the few wealthy enough to extend their
+          lives indefinitely through a blood-based treatment process, and he
+          might be Dezi’s ticket to paying off his bounty, but the mischievous
+          immortal is as eccentric as he is generous. He claims to be an
+          authentic vampire, and he becomes Dezi’s lifeline when a storm
+          devastates the city, trapping the resort’s blood-drinking clientele
+          with a dwindling supply of mortals. The problem is that accepting help
+          from an immortal is never free, and Dezi won't settle for being seen
+          as a blood bag. He wants to be more than a toy or tool to those in
+          power, but in this ruthless city, the cost of keeping your humanity
+          can be your life.
+        </p>
+      </div>
+      <img
+        id="kindle"
+        src="https://lh6.googleusercontent.com/Dn_zLKTgDfkXYo8G2BmPlURoo8LVGfPLHU3UfmVV4ZPI8Zbz_u6Gkp9HXL2RarpuFTZ2_UifaUw9PBBjjdIVMFg"
+      />
     </div>
     <canvas id="bg"></canvas>
     <canvas id="stars"></canvas>
@@ -204,7 +228,26 @@
     ctxStars.closePath();
   }
 
+  function resizeCanvas() {
+    W = document.getElementById("book-container").offsetWidth;
+    H = document.getElementById("book-container").offsetHeight;
+    stars.width = W;
+    stars.height = H;
+    mars.width = W;
+    mars.height = H;
+    bg.width = W;
+    bg.height = H;
+
+    //Get Mars center
+    marsR = W;
+    marsX = W / 2;
+    marsY = marsR * 1.25;
+    drawBack();
+    drawMars();
+  }
+
   window.onload = function () {
+    window.addEventListener("resize", resizeCanvas, false);
     drawBack();
     drawMars();
     starArray = makeStars();
