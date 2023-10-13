@@ -19,31 +19,96 @@
     position: absolute;
   }
   #book-container {
-    height: 500px;
+    height: 600px;
   }
   .overlay {
     /*flex*/
     position: absolute;
     z-index: 2;
     color: white;
-    padding: 50px;
     display: flex;
     flex-direction: row;
-    height: 500px;
+    height: 600px; 
     justify-content: space-between;
+    width: 100%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
   h1 {
     font-family: "Federant";
     font-weight: 300;
+    font-size: 58px;
   }
   p {
     font-family: "Spectral";
+    font-size: larger;
   }
   #bookstuff {
     width: 50%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   #kindle {
+    padding: 20px;
     margin-right: 100px;
+  }
+  #buttonbox {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pretty-button {
+    width: 250px;
+    height: 60px;
+    color: #b30000;
+    font-size: larger;
+    font-family: "Spectral";
+    font-weight: 800;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: #ffffff;
+  }
+  .pretty-button:hover {
+    color: #ffffff;
+    font-weight: 500;
+    background: #3d0012;
+    box-shadow: none;
+    text-shadow: -1px -1px 1px#b30000, 1px -1px 1px #b30000, -1px 1px 1px #b30000,
+      1px 1px 1px #b30000;
+  }
+  .pretty-button:before,
+  .pretty-button:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #ffffff;
+    box-shadow: -1px -1px 5px 0px #ff0000, 7px 7px 20px 1px #b30000,
+      4px 4px 5px 1px #b30000;
+    transition: 400ms ease all;
+  }
+  .pretty-button:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+  }
+  .pretty-button:hover:before,
+  .pretty-button:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
   }
 </style>
 
@@ -51,25 +116,14 @@
   <div id="book-container">
     <div class="overlay">
       <div id="bookstuff">
+        <div>
         <h1>This planet will bleed you dry...</h1>
-        <p>
-          Struggling to find his place in a world that sees him as another body
-          to throw into the grinder, Dezi flees his home colony after being
-          framed for a facility malfunction. He’s thrown into a world of dark
-          luxury when he lands a serving job at a high-end resort in the capital
-          city of Mars and a secretive guest selects him as his regular host.
-          The VIP is a perennial, one of the few wealthy enough to extend their
-          lives indefinitely through a blood-based treatment process, and he
-          might be Dezi’s ticket to paying off his bounty, but the mischievous
-          immortal is as eccentric as he is generous. He claims to be an
-          authentic vampire, and he becomes Dezi’s lifeline when a storm
-          devastates the city, trapping the resort’s blood-drinking clientele
-          with a dwindling supply of mortals. The problem is that accepting help
-          from an immortal is never free, and Dezi won't settle for being seen
-          as a blood bag. He wants to be more than a toy or tool to those in
-          power, but in this ruthless city, the cost of keeping your humanity
-          can be your life.
-        </p>
+        <br />
+        <p>I know he wants my blood, but is he after something more?</p>
+        </div>
+        <div id="buttonbox">
+          <button class="pretty-button" type="button">Order on Amazon</button>
+        </div>
       </div>
       <img
         id="kindle"
@@ -154,7 +208,7 @@
       let y = H * Math.random();
       let r = 5 * Math.random();
       let step = 0;
-      let speed = speedY * (Math.random() * (1 - 0.5) + 0.5);
+      let speed = speedY * (Math.random() * (1 - 0.1) + 0.1);
       stars[i] = new Star(x, y, r, step, speed);
     }
     return stars;
