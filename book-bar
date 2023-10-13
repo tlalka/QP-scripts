@@ -48,14 +48,12 @@
     padding: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
   #kindle {
     padding: 20px;
     margin-right: 100px;
   }
   #buttonbox {
-    padding: 30px;
     display: flex;
     justify-content: center;
   }
@@ -110,6 +108,24 @@
     width: 100%;
     transition: 800ms ease all;
   }
+
+  .glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ff5680, 0 0 20px #ff5680, 0 0 30px #ff5680, 0 0 40px #ac1159, 0 0 50px #ac1159, 0 0 60px #ac1159, 0 0 70px #ac1159;
+  }
+  to {
+    text-shadow: 0 0 20px #ff5680, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ac1159 0 0 60px #ac1159, 0 0 70px #ac1159, 0 0 80px #ac1159;
+  }
+}
 </style>
 
 <body>
@@ -119,7 +135,9 @@
         <div>
         <h1>This planet will bleed you dry...</h1>
         <br />
-        <p>I know he wants my blood, but is he after something more?</p>
+        <br />
+        <p style="font-size:22px;">"You sweet thing, you are too gentle for this cruel world, too easily used. But I can protect you."</p>
+        <p class="glow" style="font-size:30px;font-style:italic; margin-top:-10px; margin-left:20px">"From here on, my pet, you need only fear me."</p>
         </div>
         <div id="buttonbox">
           <button class="pretty-button" type="button">Order on Amazon</button>
