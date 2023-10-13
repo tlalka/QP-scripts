@@ -1,170 +1,213 @@
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Pro">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Federant">
 <style>
-  body{margin:0;}
-  canvas{position:fixed;}
+  :root {
+    --darkspace: #040005;
+    --planetglow: #ac1159;
+    --mars: #880606;
+  }
+  body {
+    margin: 0;
+
+  }
+  canvas {
+    position: absolute;
+  }
+  #book-container {
+    height: 500px;
+  }
+  .overlay{ /*flex*/
+    position: absolute;
+    z-index: 2;
+    color: white;
+    margin: 50px;
+  }
+  h1{
+    font-family: 'Federant';
+  }
+  p{
+    font-family: 'Crimson Pro';
+  }
 </style>
 
 <body>
-  <canvas id="bg"></canvas>
-  <canvas id="stars"></canvas>
-  <canvas id="mars"></canvas>
+  <div id="book-container">
+    <div class="overlay">
+    <h1>This planet will bleed you dry</h1>
+    <p>
+      Struggling to find his place in a world that sees him as another body to
+      throw into the grinder, Dezi flees his home colony after being framed for
+      a facility malfunction. He’s thrown into a world of dark luxury when he
+      lands a serving job at a high-end resort in the capital city of Mars and a
+      secretive guest selects him as his regular host. The VIP is a perennial,
+      one of the few wealthy enough to extend their lives indefinitely through a
+      blood-based treatment process, and he might be Dezi’s ticket to paying off
+      his bounty, but the mischievous immortal is as eccentric as he is
+      generous. He claims to be an authentic vampire, and he becomes Dezi’s
+      lifeline when a storm devastates the city, trapping the resort’s
+      blood-drinking clientele with a dwindling supply of mortals. The problem
+      is that accepting help from an immortal is never free, and Dezi won't
+      settle for being seen as a blood bag. He wants to be more than a toy or
+      tool to those in power, but in this ruthless city, the cost of keeping
+      your humanity can be your life.
+    </p>
+    </div>
+    <canvas id="bg"></canvas>
+    <canvas id="stars"></canvas>
+    <canvas id="mars"></canvas>
+  </div>
 </body>
 
 <script>
-//Colors
-const backC = "#71150e";
-const starC = "white";
-const marsC = "#943b40";
-const glowC = "#0c101e";
+  //Colors
 
-//record an array of stars
-const starNum = 75;
-var stepA = 0.25;
-var stepAdir = 1;
-const speedA = 0.02;
-const speedY = -.25; //only works in one way
-var starArray = [];
+  const backC = getComputedStyle(
+    document.querySelector(":root")
+  ).getPropertyValue("--darkspace");
+  const starC = "white";
+  const marsC = getComputedStyle(
+    document.querySelector(":root")
+  ).getPropertyValue("--mars");
+  const glowC = getComputedStyle(
+    document.querySelector(":root")
+  ).getPropertyValue("--planetglow");
 
-//Get context and screen size;
-var W = window.innerWidth;
-var H = window.innerHeight;
-const ctxStars = stars.getContext("2d");
-const ctxMars = mars.getContext("2d");
-const ctxBack = bg.getContext("2d");
-stars.width = W;
-stars.height = H;
-mars.width = W;
-mars.height = H;
-bg.width = W;
-bg.height = H;
+  //record an array of stars
+  const starNum = 75;
+  var stepA = 0.25;
+  var stepAdir = 1;
+  const speedA = 0.02;
+  const speedY = -0.25; //only works in one way
+  var starArray = [];
 
-//Get Mars center
-var marsR = W;
-var marsX = W / 2;
-var marsY = marsR * 1.25;
+  //Get context and screen size;
+  var W = document.getElementById("book-container").offsetWidth;
+  var H = document.getElementById("book-container").offsetHeight;
+  const ctxStars = stars.getContext("2d");
+  const ctxMars = mars.getContext("2d");
+  const ctxBack = bg.getContext("2d");
+  stars.width = W;
+  stars.height = H;
+  mars.width = W;
+  mars.height = H;
+  bg.width = W;
+  bg.height = H;
 
-function drawMars() {
-  //Draw Mars
-  ctxMars.beginPath();
-  ctxMars.arc(marsX, marsY, marsR, 0, 2 * Math.PI);
-  ctxMars.fillStyle = backC;
-  ctxMars.fill();
-}
+  //Get Mars center
+  var marsR = W;
+  var marsX = W / 2;
+  var marsY = marsR * 1.25;
 
-function drawBack() {
-  //Set Canvas and Background Color;
-  let my_gradient = ctxBack.createRadialGradient(
-    marsX,
-    marsY,
-    marsR * 0.95,
-    marsX,
-    marsY,
-    marsR * 1.05
-  );
-  my_gradient.addColorStop(0, marsC);
-  my_gradient.addColorStop(1, glowC);
-  ctxBack.fillStyle = my_gradient;
-  ctxBack.fillRect(0, 0, W, H);
-}
-
-function makeStars() {
-  let stars = [];
-  //Random position and size of stars;
-  for (let i = 0; i < starNum; i++) {
-    let x = W * Math.random();
-    let y = H * Math.random();
-    let r = 5 * (Math.random());
-    let step = 0;
-    let speed = speedY * (Math.random() * (1 - .5) + .5);
-    stars[i] = new Star(x, y, r, step, speed);
-  }
-  return stars;
-}
-
-class Star {
-  constructor(x, y, r, step, speed) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
-    this.step = step;
-    this.speed = speed;
-  }
-}
-
-function render() {
-  ctxStars.clearRect(0, 0, W, H);
-
-  //
-  if (stepA >= 1) {
-    stepAdir = 1;
-  } else if (stepA <= 0.1) {
-    stepAdir = 0;
-  }
-  //Alpha change
-  if (stepAdir == 1) {
-    stepA = stepA - speedA;
-  } else {
-    stepA = stepA + speedA;
+  function drawMars() {
+    //Draw Mars
+    ctxMars.beginPath();
+    ctxMars.arc(marsX, marsY, marsR, 0, 2 * Math.PI);
+    ctxMars.fillStyle = marsC;
+    ctxMars.fill();
   }
 
-  for (let i = 0; i < starArray.length; i++) {
-    console.log(starArray[i].step);
-    if (starArray[i].step <= 0) {
-      starArray[i].step = H;
-    } 
-    else {
-      starArray[i].step = starArray[i].step + starArray[i].speed;
+  function drawBack() {
+    //Set Canvas and Background Color;
+    let my_gradient = ctxBack.createRadialGradient(
+      marsX,
+      marsY,
+      marsR * 0.95,
+      marsX,
+      marsY,
+      marsR * 1.05
+    );
+    my_gradient.addColorStop(0, glowC);
+    my_gradient.addColorStop(1, backC);
+    ctxBack.fillStyle = my_gradient;
+    ctxBack.fillRect(0, 0, W, H);
+  }
+
+  function makeStars() {
+    let stars = [];
+    //Random position and size of stars;
+    for (let i = 0; i < starNum; i++) {
+      let x = W * Math.random();
+      let y = H * Math.random();
+      let r = 5 * Math.random();
+      let step = 0;
+      let speed = speedY * (Math.random() * (1 - 0.5) + 0.5);
+      stars[i] = new Star(x, y, r, step, speed);
+    }
+    return stars;
+  }
+
+  class Star {
+    constructor(x, y, r, step, speed) {
+      this.x = x;
+      this.y = y;
+      this.r = r;
+      this.step = step;
+      this.speed = speed;
+    }
+  }
+
+  function render() {
+    ctxStars.clearRect(0, 0, W, H);
+
+    //
+    if (stepA >= 1) {
+      stepAdir = 1;
+    } else if (stepA <= 0.1) {
+      stepAdir = 0;
+    }
+    //Alpha change
+    if (stepAdir == 1) {
+      stepA = stepA - speedA;
+    } else {
+      stepA = stepA + speedA;
     }
 
-    //console.log(starArray[i].step)
-    
-    ctxStars.beginPath();
-    num = Math.abs(stepA + i / starArray.length - 1);
-    fillstyle = "rgba(255, 255, 255," + String(num) + ")";
-    ctxStars.fillStyle = fillstyle;
-    newStarY = (starArray[i].y + starArray[i].step) % H;
-    ctxStars.save();
-    drawDiamond(
-      starArray[i].x,
-      newStarY,
-      starArray[i].r,
-      starArray[i].r * 2
-    );
-    ctxStars.fill();
-    ctxStars.restore();
-    //add center for extra glow
-    ctxStars.arc(
-      starArray[i].x,
-      newStarY + starArray[i].r,
-      starArray[i].r / 5,
-      0,
-      Math.PI * 2
-    );
-    ctxStars.fill();
+    for (let i = 0; i < starArray.length; i++) {
+      if (starArray[i].step <= 0) {
+        starArray[i].step = H;
+      } else {
+        starArray[i].step = starArray[i].step + starArray[i].speed;
+      }
+
+      ctxStars.beginPath();
+      num = Math.abs(stepA + i / starArray.length - 1);
+      fillstyle = "rgba(255, 255, 255," + String(num) + ")";
+      ctxStars.fillStyle = fillstyle;
+      newStarY = (starArray[i].y + starArray[i].step) % H;
+      ctxStars.save();
+      drawDiamond(starArray[i].x, newStarY, starArray[i].r, starArray[i].r * 2);
+      ctxStars.fill();
+      ctxStars.restore();
+      //add center for extra glow
+      ctxStars.arc(
+        starArray[i].x,
+        newStarY + starArray[i].r,
+        starArray[i].r / 5,
+        0,
+        Math.PI * 2
+      );
+      ctxStars.fill();
+    }
+    //ctxStars.globalAlpha = stepA;
+    ctxStars.shadowBlur = 5;
+    ctxStars.shadowColor = "white";
+    //console.log("run render");
   }
-  //ctxStars.globalAlpha = stepA;
-  ctxStars.shadowBlur = 5;
-  ctxStars.shadowColor = "white";
-  //console.log("run render");
-}
 
-window.onload = function () {
-  drawBack();
-  drawMars();
-  starArray = makeStars();
-  setInterval(render, 50);
-};
+  function drawDiamond(x, y, width, height) {
+    ctxStars.beginPath();
+    ctxStars.moveTo(x, y);
 
-function drawDiamond(x, y, width, height) {
-  ctxStars.beginPath();
-  ctxStars.moveTo(x, y);
+    ctxStars.lineTo(x - width / 2, y + height / 2);
+    ctxStars.lineTo(x, y + height);
+    ctxStars.lineTo(x + width / 2, y + height / 2);
+    ctxStars.closePath();
+  }
 
-  ctxStars.lineTo(x - width / 2, y + height / 2);
-  ctxStars.lineTo(x, y + height);
-  ctxStars.lineTo(x + width / 2, y + height / 2);
-  ctxStars.closePath();
-}
-
+  window.onload = function () {
+    drawBack();
+    drawMars();
+    starArray = makeStars();
+    setInterval(render, 50);
+  };
 </script>
-
-
