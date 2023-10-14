@@ -161,7 +161,7 @@
   //Get Mars center
   var marsR = W;
   var marsX = W / 2;
-  var marsY = -marsR * 0.75;
+  var marsY = -marsR * 0.8;
 
   function drawMars() {
     //Draw Mars
@@ -282,7 +282,8 @@
     //Get Mars center
     marsR = W;
     marsX = W / 2;
-    marsY = -marsR * 0.75;
+    marsY = -marsR * 0.8;
+
     drawBack();
     //drawMars();
     setDropLoc(marsX, marsY + marsR);
@@ -310,16 +311,16 @@
     container_block.appendChild(dropBody);
   }
 
-  function setDropLoc(x, y) {
+  function setDropLoc() {
     //only works for one drop right now
     drop1 = document.getElementsByClassName("toggle-btn")[0];
-    drop1.style.top = -W * 0.75;
+    drop1.style.top = marsY;
     drop1.style.left = marsX;
-    drop1.style.width = W * 2;
-    drop1.style.height = W * 2;
+    drop1.style.width = marsR * 2;
+    drop1.style.height = marsR * 2;
     drop2 = document.getElementsByClassName("drop")[0];
-    drop2.style.top = y - 30; //smooth animation
-    drop2.style.left = x;
+    drop2.style.top = marsY + marsR - 30; //smooth animation
+    drop2.style.left = marsX;
   }
 
   window.onload = function () {
@@ -327,7 +328,7 @@
     console.log(document.documentElement.clientHeight);
     window.addEventListener("resize", resizeCanvas, false);
     createDrop();
-    setDropLoc(marsX, marsY + marsR);
+    setDropLoc();
     drawBack();
     //drawMars();
     starArray = makeStars();
