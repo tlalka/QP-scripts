@@ -24,6 +24,13 @@
   #book-container {
     height: 1000px;
   }
+  #book-stuff {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10%;
+  }
   .overlay {
     /*flex*/
     position: absolute;
@@ -113,21 +120,16 @@
 
 <body>
   <div id="book-container">
-    <div class="overlay">
-      <div id="bookstuff">
-        
-        <object data="6ch-signup.html"> 
-          Your browser doesn’t support the object tag. 
+    <div id="book-stuff">
+      <object data="6ch-signup.html" style="width: 100%; height: 100%">
+        Your browser doesn’t support the object tag.
       </object>
-      
     </div>
-      </div>
-      <canvas id="bg"></canvas>
-      <canvas id="stars"></canvas>
-      <canvas id="mars" style="z-index: 0"></canvas>
-      <div id="dropcontainer"></div>
-    </div>
-
+    <canvas id="bg"></canvas>
+    <canvas id="stars"></canvas>
+    <canvas id="mars" style="z-index: 0"></canvas>
+    <div id="dropcontainer"></div>
+  </div>
 </body>
 
 <script>
@@ -168,7 +170,7 @@
   //Get Mars center
   var marsR = W;
   var marsX = W / 2;
-  var marsY = -marsR * 0.85;
+  var marsY = -marsR * 0.75;
 
   function drawMars() {
     //Draw Mars
@@ -289,7 +291,7 @@
     //Get Mars center
     marsR = W;
     marsX = W / 2;
-    marsY = -marsR * 0.85;
+    marsY = -marsR * 0.75;
 
     drawBack();
     //drawMars();

@@ -1,5 +1,3 @@
-
-
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Spectral"
@@ -32,7 +30,7 @@
     color: white;
     display: flex;
     flex-direction: row;
-    height: 600px; 
+    height: 600px;
     justify-content: space-between;
     width: 100%;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
@@ -85,8 +83,8 @@
     font-weight: 500;
     background: #3d0012;
     box-shadow: none;
-    text-shadow: -1px -1px 1px#b30000, 1px -1px 1px #b30000, -1px 1px 1px #b30000,
-      1px 1px 1px #b30000;
+    text-shadow: -1px -1px 1px#b30000, 1px -1px 1px #b30000,
+      -1px 1px 1px #b30000, 1px 1px 1px #b30000;
   }
   .pretty-button:before,
   .pretty-button:after {
@@ -114,19 +112,22 @@
   }
 
   .glow {
-  font-size: 80px;
-  color: #fff;
-  text-align: center;
-  animation: glow 5s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 5cm #ff759e, 0 0 10px #ff5e86, 0 0 20px #ff0000, 0 0 30px #940000;
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: glow 5s ease-in-out infinite alternate;
   }
-  to {
-    text-shadow: 0 0 7px #ff0040, 0 0 15px #ff0000, 0 0 30px #940000, 0 0 40px #ac1159;
-}
+
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 5cm #ff759e, 0 0 10px #ff5e86, 0 0 20px #ff0000,
+        0 0 30px #940000;
+    }
+    to {
+      text-shadow: 0 0 7px #ff0040, 0 0 15px #ff0000, 0 0 30px #940000,
+        0 0 40px #ac1159;
+    }
+  }
 </style>
 
 <body>
@@ -134,20 +135,30 @@
     <div class="overlay">
       <div id="bookstuff">
         <div>
-        <h1>This planet will bleed you dry...</h1>
-        <br />
-        <br />
-        <p style="font-size:22px;">Enter Chryse, a city of dark secrets and forbidden pleasures where nothing comes free.</p>
-        <p class="glow" style="font-size:30px;font-style:italic; margin-top:-10px; margin-left:20px">Surviving it may cost your humanity.</p>
+          <h1>This planet will bleed you dry...</h1>
+          <br />
+          <br />
+          <p style="font-size: 22px">
+            Enter Chryse, a city of dark secrets and forbidden pleasures where
+            nothing comes free.
+          </p>
+          <p
+            class="glow"
+            style="
+              font-size: 30px;
+              font-style: italic;
+              margin-top: -10px;
+              margin-left: 20px;
+            "
+          >
+            Surviving it may cost your humanity.
+          </p>
         </div>
         <div id="buttonbox">
           <button class="pretty-button" type="button">Order on Amazon</button>
         </div>
       </div>
-      <img
-        id="kindle"
-        src="https://tlalka.github.io/QP-scripts/book.png"
-      />
+      <img id="kindle" src="https://tlalka.github.io/QP-scripts/book.png" />
     </div>
     <canvas id="bg"></canvas>
     <canvas id="stars"></canvas>
@@ -328,5 +339,3 @@
     setInterval(render, 50);
   };
 </script>
-
-
