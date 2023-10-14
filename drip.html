@@ -16,6 +16,7 @@
   }
   body {
     margin: 0;
+    overflow: hidden;
   }
   canvas {
     position: absolute;
@@ -104,7 +105,7 @@
       border-bottom-right-radius: 0%;
     }
     100% {
-      transform: translate(-50%, 1300px) rotate(-135deg);
+      transform: translate(-50%, 1000px) rotate(-135deg); /* set this to page height - load x*/
       border-bottom-right-radius: 100%;
     }
   }
@@ -283,7 +284,8 @@
     marsX = W / 2;
     marsY = -marsR * 0.75;
     drawBack();
-    drawMars();
+    //drawMars();
+    setDropLoc(marsX, marsY + marsR);
   }
 
   function createDrop() {
@@ -316,15 +318,16 @@
     drop1.style.width = W * 2;
     drop1.style.height = W * 2;
     drop2 = document.getElementsByClassName("drop")[0];
-    drop2.style.top = y;
+    drop2.style.top = y - 30; //smooth animation
     drop2.style.left = x;
   }
 
   window.onload = function () {
     console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
     window.addEventListener("resize", resizeCanvas, false);
     createDrop();
-    setDropLoc(marsX, marsY + marsR - 50); // minus drop diameter hard coded
+    setDropLoc(marsX, marsY + marsR);
     drawBack();
     //drawMars();
     starArray = makeStars();
