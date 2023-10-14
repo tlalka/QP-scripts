@@ -320,7 +320,7 @@
   }
 
   window.onload = function () {
-    //console.log(contentWindow.document.body.scrollHeight);
+    console.log(document.documentElement.clientWidth);
     window.addEventListener("resize", resizeCanvas, false);
     drawBack();
     drawMars();
