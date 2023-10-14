@@ -1,5 +1,3 @@
-
-
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Spectral"
@@ -13,8 +11,6 @@
     --darkspace: #040005;
     --planetglow: #ac1159;
     --mars: #880606;
-    --paper: #e1d7d2;
-    --orange: #cd5a0a;
   }
   body {
     margin: 0;
@@ -125,7 +121,7 @@
     text-shadow: 0 0 5cm #ff759e, 0 0 10px #ff5e86, 0 0 20px #ff0000, 0 0 30px #940000;
   }
   to {
-    text-shadow: 0 0 7px #ff0040, 0 0 15px #ff0000, 0 0 30px #940000, 0 0 40px #ac1159;
+    text-shadow: 0 0 7px #ff4a4a, 0 0 15px #ff0040, 0 0 30px #ff0000, 0 0 40px #940000;
 }
 </style>
 
@@ -138,7 +134,7 @@
         <br />
         <br />
         <p style="font-size:22px;">Enter Chryse, a city of dark secrets and forbidden pleasures where nothing comes free.</p>
-        <p class="glow" style="font-size:30px;font-style:italic; margin-top:-10px; margin-left:20px">Surviving it may cost your humanity.</p>
+        <p class="glow" style="font-size:30px;font-style:italic; margin-top:-10px; margin-left:20px">If you plan to survive, it may cost your humanity.</p>
         </div>
         <div id="buttonbox">
           <button class="pretty-button" type="button">Order on Amazon</button>
@@ -146,7 +142,7 @@
       </div>
       <img
         id="kindle"
-        src="https://lh3.googleusercontent.com/53mBITJyTZgGRvBuzDf56MLFrufs5pQGsMLo2jGeK72h3JDiZuIJDHAVwGjlUpZmmDm0qA1ieKCaLBfn85HU5hI"
+        src="https://lh6.googleusercontent.com/Dn_zLKTgDfkXYo8G2BmPlURoo8LVGfPLHU3UfmVV4ZPI8Zbz_u6Gkp9HXL2RarpuFTZ2_UifaUw9PBBjjdIVMFg"
       />
     </div>
     <canvas id="bg"></canvas>
@@ -320,7 +316,6 @@
   }
 
   window.onload = function () {
-    //console.log(contentWindow.document.body.scrollHeight);
     window.addEventListener("resize", resizeCanvas, false);
     drawBack();
     drawMars();
@@ -328,5 +323,3 @@
     setInterval(render, 50);
   };
 </script>
-
-
