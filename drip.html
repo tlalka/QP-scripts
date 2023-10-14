@@ -114,13 +114,20 @@
 <body>
   <div id="book-container">
     <div class="overlay">
-      <div id="bookstuff">CENTER</div>
+      <div id="bookstuff">
+        
+        <object data="6ch-signup.html"> 
+          Your browser doesn’t support the object tag. 
+      </object>
+      
+    </div>
+      </div>
       <canvas id="bg"></canvas>
       <canvas id="stars"></canvas>
       <canvas id="mars" style="z-index: 0"></canvas>
       <div id="dropcontainer"></div>
     </div>
-  </div>
+
 </body>
 
 <script>
@@ -161,7 +168,7 @@
   //Get Mars center
   var marsR = W;
   var marsX = W / 2;
-  var marsY = -marsR * 0.8;
+  var marsY = -marsR * 0.85;
 
   function drawMars() {
     //Draw Mars
@@ -282,7 +289,7 @@
     //Get Mars center
     marsR = W;
     marsX = W / 2;
-    marsY = -marsR * 0.8;
+    marsY = -marsR * 0.85;
 
     drawBack();
     //drawMars();
