@@ -22,119 +22,33 @@
     position: absolute;
   }
   #book-container {
-    height: 1200px;
-  }
-  #book-stuff {
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 10%;
+    height: 3000px;
   }
   .overlay {
     /*flex*/
     position: absolute;
-    z-index: 0;
+    z-index: 2;
     color: white;
     display: flex;
     flex-direction: row;
-    height: 1200px;
+    height: 6000px;
     justify-content: space-between;
     width: 100%;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
   }
-  h1 {
-    font-family: "Federant";
-    font-weight: 300;
-    font-size: 58px;
-  }
-  p {
-    font-family: "Spectral";
-    font-size: larger;
-  }
-
-  @import "compass/css3";
-
-  .toggle-buttons {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 2;
-    filter: url("#goo");
-    top: 0;
-    left: 0;
-
-    .toggle-btn {
-      width: 100px;
-      height: 100px;
-      background-color: var(--mars);
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      position: absolute;
-      border-radius: 100%;
-      border-style: solid;
-      border-color: #ff0000;
-      border-width: 7px;
-    }
-
-    .drop {
-      width: 50px;
-      height: 50px;
-      background-color: var(--mars);
-      left: 50%;
-      top: 50%;
-      position: absolute;
-      border-top-left-radius: 100%;
-      border-top-right-radius: 100%;
-      border-bottom-left-radius: 100%;
-      animation: drop 5s ease-in infinite;
-      border-style: solid;
-      border-color: #ff0000;
-      border-width: 2px;
-      transform: translate(-50%, -50%) rotate(-135deg);
-    }
-    .middle {
-      transform: translate(-50%, -50%) rotate(-135deg);
-    }
-    .left {
-      transform: translate(-50%, -50%) rotate(-135deg);
-    }
-    .right {
-      /*not needed*/
-    }
-  }
-
-  @keyframes drop {
-    75% {
-      transform: translate(-50%, 100%) rotate(-135deg);
-      border-bottom-right-radius: 0%;
-    }
-    100% {
-      transform: translate(-50%, 1000px) rotate(-135deg); /* set this to page height - load x*/
-      border-bottom-right-radius: 100%;
-    }
-  }
-  @media (max-width: 1000px) {
-    #book-stuff {
-      top: 30%;
+  @media (max-width: 740px) {
+    #book-container {
+      height:0px;
     }
   }
 </style>
 
 <body>
   <div id="book-container">
-    <div id="book-stuff">
-      <!--<object data="6ch-signup.html" style="width: 100%; height: 100%">
-        Your browser doesn’t support the object tag.
-      </object> -->
-      <div class="ml-embedded" data-form="HdCvYT" style="padding: 10px"></div>
-    </div>
     <canvas id="bg"></canvas>
     <canvas id="stars"></canvas>
-    <canvas id="mars" style="z-index: 0"></canvas>
-    <div id="dropcontainer"></div>
+    <canvas id="mars"></canvas>
   </div>
 </body>
 
@@ -157,7 +71,7 @@
   var stepA = 0.25;
   var stepAdir = 1;
   const speedA = 0.02;
-  const speedY = -0.25; //only works in one way
+  const speedY = 0.25; //only works in one way
   var starArray = [];
 
   //Get context and screen size;
@@ -174,17 +88,9 @@
   bg.height = H;
 
   //Get Mars center
-  var marsR = W;
+  var marsR = W * 2;
   var marsX = W / 2;
-  var marsY = -marsR * 0.75;
-
-  function drawMars() {
-    //Draw Mars
-    ctxMars.beginPath();
-    ctxMars.arc(marsX, marsY, marsR, 0, 2 * Math.PI);
-    ctxMars.fillStyle = marsC;
-    ctxMars.fill();
-  }
+  var marsY = -marsR * 0.99;
 
   function drawBack() {
     //Set Canvas and Background Color;
@@ -295,79 +201,18 @@
     bg.height = H;
 
     //Get Mars center
-    marsR = W;
+    marsR = W * 2;
     marsX = W / 2;
-    marsY = -marsR * 0.75;
-
+    marsY = -marsR * 0.99;
     drawBack();
-    //drawMars();
-    setDropLoc(marsX, marsY + marsR);
     starArray = makeStars();
-  }
-
-  function createDrop() {
-    var dropHouse = document.createElement("div");
-    var dropBody = document.createElement("div");
-    dropHouse.innerHTML = `
-      <div class="toggle-btn"></div>
-    <div class="drop">`;
-    dropHouse.setAttribute("class", "toggle-buttons");
-
-    dropBody.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <defs>
-        <filter id="goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="15"/>
-          <feColorMatrix in="blur" mode="matrix" values="1 .5 0 0 0  0 10 0 0 0  0 0 10 0 0  0 0 0 25 -10" result="goo" />
-        </filter>
-      </defs>
-      </svg>`;
-    container_block = document.getElementById("dropcontainer");
-    container_block.appendChild(dropHouse);
-    container_block.appendChild(dropBody);
-  }
-
-  function setDropLoc() {
-    //only works for one drop right now
-    drop1 = document.getElementsByClassName("toggle-btn")[0];
-    drop1.style.top = marsY;
-    drop1.style.left = marsX;
-    drop1.style.width = marsR * 2;
-    drop1.style.height = marsR * 2;
-    drop2 = document.getElementsByClassName("drop")[0];
-    drop2.style.top = marsY + marsR - 30; //smooth animation
-    drop2.style.left = marsX;
   }
 
   window.onload = function () {
     console.log(document.documentElement.clientWidth);
-    console.log(document.documentElement.clientHeight);
     window.addEventListener("resize", resizeCanvas, false);
-    createDrop();
-    setDropLoc();
     drawBack();
-    //drawMars();
     starArray = makeStars();
     setInterval(render, 50);
   };
-
-  (function (w, d, e, u, f, l, n) {
-    (w[f] =
-      w[f] ||
-      function () {
-        (w[f].q = w[f].q || []).push(arguments);
-      }),
-      (l = d.createElement(e)),
-      (l.async = 1),
-      (l.src = u),
-      (n = d.getElementsByTagName(e)[0]),
-      n.parentNode.insertBefore(l, n);
-  })(
-    window,
-    document,
-    "script",
-    "https://assets.mailerlite.com/js/universal.js",
-    "ml"
-  );
-  ml("account", "642986");
 </script>
