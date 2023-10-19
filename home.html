@@ -161,6 +161,7 @@
     #kindle {
       content: url("book.png");
       max-width: 800px !important;
+      padding-bottom: 20px;
     }
   }
 
@@ -191,6 +192,35 @@
       text-align: center;
     }
   }
+  @media (max-width: 900px) {
+    #text-box-parent {
+    flex-wrap: wrap;
+    }
+    .text-box {
+    width: 100% !important;
+  }
+  }
+
+  /* body stuff */
+  #text-box-parent {
+    display: flex;
+    flex: 1 1 0;
+    margin: 20px;
+    margin-top: 0px;
+  }
+  .text-box {
+    font-family: Spectral, Arial;
+    font-size: 14pt;
+    font-weight: 400;
+    vertical-align: baseline;
+    width: 50%;
+    padding: 10px;
+  }
+  #footer{
+    background-color: #040005;
+    color: white;
+  }
+
 </style>
 
 <body>
@@ -218,76 +248,51 @@
     <canvas id="mars"></canvas>
   </div>
 
-  <div>
-    <h1
-      style="
-        font-family: Federant, Arial;
-        font-weight: 400;
-        vertical-align: baseline;
-      "
-    >
-      The Story
-    </h1>
+  <div id="text-box-parent">
+    <div class="text-box">
+      <h1 style="font-family: Federant, Arial">The Story</h1>
 
-    <span
-      style="
-        font-family: 'Grenze Gotisch', Arial;
-        font-weight: 400;
-        vertical-align: baseline;
-      "
-      >S</span
-    ><span
-      style="
-        font-family: Spectral, Arial;
-        font-size: 14pt;
-        font-weight: 400;
-        vertical-align: baseline;
-      "
-      >truggling to find his place in a world that sees him as another body to
-      throw into the grinder, Dezi flees his home colony after being framed for
-      a facility malfunction. He’s thrown into a world of dark luxury when he
-      lands a serving job at a high-end resort in the capital city of Mars and a
-      secretive guest selects him as his regular host. The VIP is a perennial,
-      one of the few wealthy enough to extend their lives indefinitely through a
-      blood-based treatment process, and he might be Dezi’s ticket to paying off
-      his bounty, but the mischievous immortal is as eccentric as he is
-      generous. He claims to be an authentic vampire, and he becomes Dezi’s
-      lifeline when a storm devastates the city, trapping the resort’s
-      blood-drinking clientele with a dwindling supply of mortals. The problem
-      is that accepting help from an immortal is never free, and Dezi won't
-      settle for being seen as a bloodbag. He wants to be more than a toy or
-      tool to those in power, but in this ruthless city, the cost of keeping
-      your humanity can be your life.</span
-    >
-
-    <br />
-  </div>
-  <div>
-    <p style="text-align: center">
-      <span
-        style="
-          font-family: Federant, Arial;
-          font-variant: normal;
-          font-weight: 400;
-          vertical-align: baseline;
-        "
-        >Get the first six chapters FREE!</span
+      <span style="font-family: 'Grenze Gotisch', Arial; font-size: 27px"
+        >S</span
+      ><span
+        >truggling to find his place in a world that sees him as another body to
+        throw into the grinder, Dezi flees his home colony after being framed
+        for a facility malfunction. He’s thrown into a world of dark luxury when
+        he lands a serving job at a high-end resort in the capital city of Mars
+        and a secretive guest selects him as his regular host. The VIP is a
+        perennial, one of the few wealthy enough to extend their lives
+        indefinitely through a blood-based treatment process, and he might be
+        Dezi’s ticket to paying off his bounty, but the mischievous immortal is
+        as eccentric as he is generous. He claims to be an authentic vampire,
+        and he becomes Dezi’s lifeline when a storm devastates the city,
+        trapping the resort’s blood-drinking clientele with a dwindling supply
+        of mortals. The problem is that accepting help from an immortal is never
+        free, and Dezi won't settle for being seen as a bloodbag. He wants to be
+        more than a toy or tool to those in power, but in this ruthless city,
+        the cost of keeping your humanity can be your life.</span
       >
-    </p>
-    <p style="text-align: center">
-      <span
-        style="font-size: 14pt; font-variant: normal; vertical-align: baseline"
-        >Sign up to my newsletter to get the first six chapters free.</span
-      >
-    </p>
+    </div>
+
+    <div class="text-box">
+      <p style="text-align: center">
+        <span style="font-family: Federant, Arial; font-size: 32px"
+          >Get the first six chapters FREE!</span
+        >
+      </p>
+      <p style="text-align: center">
+        <span
+          >Sign up to my newsletter to get the first six chapters free.</span
+        >
+      </p>
+
+      <div>
+        <div class="ml-embedded" data-form="6S9pvi"></div>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <div class="ml-embedded" data-form="6S9pvi"></div>
-  </div>
-
-  <section>
-    <span style="vertical-align: baseline"
+  <div id="footer">
+    <span style="vertical-align: baseline;"
       >Connect with me on social media</span
     >
 
@@ -346,7 +351,7 @@
         width="44"
         height="44"
     /></a>
-  </section>
+  </div>
 </body>
 
 <script>
