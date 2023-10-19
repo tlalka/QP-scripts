@@ -24,19 +24,22 @@
     font-weight: 300;
     font-size: 58px;
   }
-  h1{
+  h1 {
     font-family: Federant, Arial;
-  font-weight: 400;
-  vertical-align: baseline;
+    font-weight: 400;
+    vertical-align: baseline;
   }
   p {
     font-family: "Spectral";
   }
-  span{
+  p.bc {
+    font-size: 22px;
+  }
+  span {
     font-family: Spectral, Arial;
-  font-size: 14pt;
-  font-weight: 400;
-  line-height: 1.2;
+    font-size: 14pt;
+    font-weight: 400;
+    line-height: 1.2;
   }
   canvas {
     position: absolute;
@@ -58,13 +61,12 @@
     display: flex;
     flex-direction: column;
   }
+  #overlay {
+    height: 600px;
+  }
   #buttonbox {
     display: flex;
     justify-content: center;
-  }
-  #kindle {
-    padding: 20px;
-    width: 600px;
   }
 
   .pretty-button {
@@ -123,6 +125,10 @@
     color: #fff;
     text-align: center;
     animation: glow 5s ease-in-out infinite alternate;
+    font-size: 30px;
+    font-style: italic;
+    margin-top: -10px;
+    margin-left: 20px;
   }
 
   @-webkit-keyframes glow {
@@ -135,33 +141,55 @@
         0 0 40px #ac1159;
     }
   }
+  @media (pointer: none), (pointer: coarse) {
+    h1.bc {
+      text-align: center;
+      font-size: 120px;
+    }
+    p.bc {
+      text-align: center;
+      font-size: 42px;
+    }
+    .pretty-button {
+      font-size: 40px;
+      width: 500px;
+      height: 120px;
+    }
+    .glow {
+      font-size: 64px;
+    }
+    #kindle {
+      content: url("book.png");
+      max-width: 800px !important;
+    }
+  }
 
-
+  @media (min-width: 1300px) {
+    #kindle {
+      width: 600px;
+      padding: 20px;
+    }
+  }
   @media (max-width: 1300px) {
-    body{
-      overflow: hidden;
-    }
     #overlay {
-    flex-direction: column;
-    height: auto;
+      flex-direction: column;
+      height: auto;
     }
-    #bookstuff{
+    #bookstuff {
       align-self: center;
       width: 100%;
     }
-    #kindle{
+    #kindle {
       align-self: center;
       max-width: 600px;
+      padding: 40px;
     }
-  #book-container{
-
-  }
-  h1.bc{
-    text-align: center;
-  }
-  p.bc{
-    text-align: center;
-  }
+    h1.bc {
+      text-align: center;
+    }
+    p.bc {
+      text-align: center;
+    }
   }
 </style>
 
@@ -173,21 +201,11 @@
           <h1 class="bc">This planet will bleed you dry...</h1>
           <br />
           <br />
-          <p class="bc" style="font-size: 22px">
+          <p class="bc">
             Enter Chryse, a city of dark secrets and forbidden pleasures where
             nothing comes free.
           </p>
-          <p
-            class="glow"
-            style="
-              font-size: 30px;
-              font-style: italic;
-              margin-top: -10px;
-              margin-left: 20px;
-            "
-          >
-            Surviving it may cost your humanity.
-          </p>
+          <p class="glow">Surviving it may cost your humanity.</p>
         </div>
         <div id="buttonbox">
           <button class="pretty-button" type="button">Order on Amazon</button>
@@ -201,47 +219,47 @@
   </div>
 
   <div>
-    <p>
-      <h1
-        style="
-          font-family: Federant, Arial;
-          font-weight: 400;
-          vertical-align: baseline;
-        "
-        >The Story</h1
-      >
-    </p>
-      <span
-        style="
-          font-family: 'Grenze Gotisch', Arial;
-          font-weight: 400;
-          vertical-align: baseline;
-        "
-        >S</span
-      ><span
-        style="
-          font-family: Spectral, Arial;
-          font-size: 14pt;
-          font-weight: 400;
-          vertical-align: baseline;
-        "
-        >truggling to find his place in a world that sees him as another body to
-        throw into the grinder, Dezi flees his home colony after being framed
-        for a facility malfunction. He’s thrown into a world of dark luxury when
-        he lands a serving job at a high-end resort in the capital city of Mars
-        and a secretive guest selects him as his regular host. The VIP is a
-        perennial, one of the few wealthy enough to extend their lives
-        indefinitely through a blood-based treatment process, and he might be
-        Dezi’s ticket to paying off his bounty, but the mischievous immortal is
-        as eccentric as he is generous. He claims to be an authentic vampire,
-        and he becomes Dezi’s lifeline when a storm devastates the city,
-        trapping the resort’s blood-drinking clientele with a dwindling supply
-        of mortals. The problem is that accepting help from an immortal is never
-        free, and Dezi won't settle for being seen as a bloodbag. He wants to be
-        more than a toy or tool to those in power, but in this ruthless city,
-        the cost of keeping your humanity can be your life.</span
-      >
-    </p>
+    <h1
+      style="
+        font-family: Federant, Arial;
+        font-weight: 400;
+        vertical-align: baseline;
+      "
+    >
+      The Story
+    </h1>
+
+    <span
+      style="
+        font-family: 'Grenze Gotisch', Arial;
+        font-weight: 400;
+        vertical-align: baseline;
+      "
+      >S</span
+    ><span
+      style="
+        font-family: Spectral, Arial;
+        font-size: 14pt;
+        font-weight: 400;
+        vertical-align: baseline;
+      "
+      >truggling to find his place in a world that sees him as another body to
+      throw into the grinder, Dezi flees his home colony after being framed for
+      a facility malfunction. He’s thrown into a world of dark luxury when he
+      lands a serving job at a high-end resort in the capital city of Mars and a
+      secretive guest selects him as his regular host. The VIP is a perennial,
+      one of the few wealthy enough to extend their lives indefinitely through a
+      blood-based treatment process, and he might be Dezi’s ticket to paying off
+      his bounty, but the mischievous immortal is as eccentric as he is
+      generous. He claims to be an authentic vampire, and he becomes Dezi’s
+      lifeline when a storm devastates the city, trapping the resort’s
+      blood-drinking clientele with a dwindling supply of mortals. The problem
+      is that accepting help from an immortal is never free, and Dezi won't
+      settle for being seen as a bloodbag. He wants to be more than a toy or
+      tool to those in power, but in this ruthless city, the cost of keeping
+      your humanity can be your life.</span
+    >
+
     <br />
   </div>
   <div>
@@ -258,18 +276,13 @@
     </p>
     <p style="text-align: center">
       <span
-        style="
-          font-size: 14pt;
-          font-variant: normal;
-          vertical-align: baseline;
-        "
+        style="font-size: 14pt; font-variant: normal; vertical-align: baseline"
         >Sign up to my newsletter to get the first six chapters free.</span
       >
     </p>
   </div>
 
   <div>
-    
     <div class="ml-embedded" data-form="6S9pvi"></div>
   </div>
 
@@ -523,10 +536,24 @@
 
 <!-- MailerLite Universal -->
 <script>
-  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-  ml('account', '642986');
+  (function (w, d, e, u, f, l, n) {
+    (w[f] =
+      w[f] ||
+      function () {
+        (w[f].q = w[f].q || []).push(arguments);
+      }),
+      (l = d.createElement(e)),
+      (l.async = 1),
+      (l.src = u),
+      (n = d.getElementsByTagName(e)[0]),
+      n.parentNode.insertBefore(l, n);
+  })(
+    window,
+    document,
+    "script",
+    "https://assets.mailerlite.com/js/universal.js",
+    "ml"
+  );
+  ml("account", "642986");
 </script>
 <!-- End MailerLite Universal -->
