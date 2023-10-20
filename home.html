@@ -130,6 +130,12 @@
     margin-top: -10px;
     margin-left: 20px;
   }
+  .big-font {
+    font-size: 32px;
+  }
+  .small-font {
+    font-size: 21px;
+  }
 
   @-webkit-keyframes glow {
     from {
@@ -142,6 +148,12 @@
     }
   }
   @media (pointer: none), (pointer: coarse) {
+    .big-font {
+      font-size: 120px;
+    }
+    .small-font {
+      font-size: 42px;
+    }
     h1.bc {
       text-align: center;
       font-size: 120px;
@@ -162,6 +174,12 @@
       content: url("book.png");
       max-width: 800px !important;
       padding-bottom: 20px;
+    }
+    #text-box-parent {
+      flex-wrap: wrap;
+    }
+    .text-box {
+      width: 100% !important;
     }
   }
 
@@ -194,14 +212,13 @@
   }
   @media (max-width: 900px) {
     #text-box-parent {
-    flex-wrap: wrap;
+      flex-wrap: wrap;
     }
     .text-box {
-    width: 100% !important;
-  }
+      width: 100% !important;
+    }
   }
 
-  /* body stuff */
   #text-box-parent {
     display: flex;
     flex: 1 1 0;
@@ -216,11 +233,57 @@
     width: 50%;
     padding: 10px;
   }
-  #footer{
+  #footer {
     background-color: #040005;
     color: white;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
-
+  div.social {
+    text-align: center;
+    width: 50%;
+  }
+  a.social {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0;
+    font-size: 10pt;
+    box-sizing: content-box;
+    border-radius: 12.5%;
+    width: 48px;
+    height: 48px;
+    margin: 9px;
+  }
+  img.social {
+    margin: 2px;
+    box-sizing: content-box;
+    text-align: center;
+    border: 0;
+    width: 44px;
+    height: 44px;
+  }
+  .divider {
+    background-color: rgba(172, 17, 89, 1);
+    height: 4px;
+    margin: 7.5px;
+  }
+  .small-footer {
+    padding: 2px;
+    display: block;
+    line-height: 1.2;
+    text-align: right;
+    margin: 0px;
+    text-indent: 0pt;
+    margin-top: 4pt;
+    font-size: 12px;
+    color: var(--paper);
+    outline: none;
+    position: relative;
+    box-sizing: border-box;
+  }
 </style>
 
 <body>
@@ -250,11 +313,11 @@
 
   <div id="text-box-parent">
     <div class="text-box">
-      <h1 style="font-family: Federant, Arial">The Story</h1>
+      <h1 style="font-family: Federant, Arial" class="big-font">The Story</h1>
 
-      <span style="font-family: 'Grenze Gotisch', Arial; font-size: 27px"
+      <span style="font-family: 'Grenze Gotisch', Arial;" class="big-font"
         >S</span
-      ><span
+      ><span class="small-font"
         >truggling to find his place in a world that sees him as another body to
         throw into the grinder, Dezi flees his home colony after being framed
         for a facility malfunction. He’s thrown into a world of dark luxury when
@@ -275,12 +338,12 @@
 
     <div class="text-box">
       <p style="text-align: center">
-        <span style="font-family: Federant, Arial; font-size: 32px"
+        <span style="font-family: Federant, Arial;" class="big-font"
           >Get the first six chapters FREE!</span
         >
       </p>
       <p style="text-align: center">
-        <span
+        <span  class="small-font"
           >Sign up to my newsletter to get the first six chapters free.</span
         >
       </p>
@@ -290,67 +353,54 @@
       </div>
     </div>
   </div>
-
+  <div class="divider"></div>
   <div id="footer">
-    <span style="vertical-align: baseline;"
+    <span
+      style="vertical-align: baseline; font-family: Federant" class="big-font"
       >Connect with me on social media</span
     >
-
-    <a
-      href="https://www.google.com/url?q=https%3A%2F%2Fwww.tiktok.com%2F%40asherquazar&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1oD8Yr2wFqZca_VPeX-gCO"
-      target="_blank"
-      class="RNpQXe AIKCSc"
-      style="
-        width: 48px;
-        height: 48px;
-        margin: 9px;
-        background-color: #000000;
-        background-image: linear-gradient(#000000, #000000);
-      "
-      ><img
-        src="https://ssl.gstatic.com/atari/images/sociallinks/tiktok_colored_light_44dp.png"
-        alt="TikTok"
-        class="lEB4Hf"
-        style="width: 44px; height: 44px"
-        width="44"
-        height="44" /></a
-    ><a
-      href="https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FAsher-Quazar%2F61552215930211%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0xGgxIWh0spb5l68u_Nsvl"
-      target="_blank"
-      class="RNpQXe AIKCSc"
-      style="
-        width: 48px;
-        height: 48px;
-        margin: 9px;
-        background-color: #1877f2;
-        background-image: linear-gradient(#1877f2, #1877f2);
-      "
-      ><img
-        src="https://ssl.gstatic.com/atari/images/sociallinks/facebook_white_44dp.png"
-        alt="Facebook"
-        class="lEB4Hf"
-        style="width: 44px; height: 44px"
-        width="44"
-        height="44" /></a
-    ><a
-      href="https://www.google.com/url?q=https%3A%2F%2Fwww.instagram.com%2Fasherquazar%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2qwuEYGSn9SDdOnGP44T5U"
-      target="_blank"
-      class="RNpQXe AIKCSc"
-      style="
-        width: 48px;
-        height: 48px;
-        margin: 9px;
-        background-color: #fe005c;
-        background-image: linear-gradient(#fe005c, #fe005c);
-      "
-      ><img
-        src="https://ssl.gstatic.com/atari/images/sociallinks/instagram_white_44dp.png"
-        alt="Instagram"
-        class="lEB4Hf"
-        style="width: 44px; height: 44px"
-        width="44"
-        height="44"
-    /></a>
+    <div class="social">
+      <div>
+        <a
+          href="https://www.google.com/url?q=https%3A%2F%2Fwww.tiktok.com%2F%40asherquazar&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1oD8Yr2wFqZca_VPeX-gCO"
+          target="_blank"
+          class="social"
+          style="
+            background-color: #000000;
+            background-image: linear-gradient(#000000, #000000);
+          "
+          ><img
+            src="https://ssl.gstatic.com/atari/images/sociallinks/tiktok_colored_light_44dp.png"
+            alt="TikTok"
+            class="social" /></a
+        ><a
+          href="https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FAsher-Quazar%2F61552215930211%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0xGgxIWh0spb5l68u_Nsvl"
+          target="_blank"
+          class="social"
+          style="
+            background-color: #1877f2;
+            background-image: linear-gradient(#1877f2, #1877f2);
+          "
+          ><img
+            src="https://ssl.gstatic.com/atari/images/sociallinks/facebook_white_44dp.png"
+            alt="Facebook"
+            class="social" /></a
+        ><a
+          href="https://www.google.com/url?q=https%3A%2F%2Fwww.instagram.com%2Fasherquazar%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2qwuEYGSn9SDdOnGP44T5U"
+          target="_blank"
+          class="social"
+          style="
+            background-color: #fe005c;
+            background-image: linear-gradient(#fe005c, #fe005c);
+          "
+          ><img
+            src="https://ssl.gstatic.com/atari/images/sociallinks/instagram_white_44dp.png"
+            alt="instagram"
+            class="social"
+        /></a>
+      </div>
+      <div class="small-footer">Email: Asher@AsherQuazar.com</div>
+    </div>
   </div>
 </body>
 
