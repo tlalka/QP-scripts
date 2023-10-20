@@ -608,9 +608,12 @@
     starArray = makeStars();
   }
 
+  //resize as soon as possible to avoic items jumpting around
+  document.addEventListener("DOMContentLoaded", () => {
+    resizeCanvas();
+});
   window.onload = function () {
     window.addEventListener("resize", resizeCanvas, false);
-    resizeCanvas();
     drawBack();
     drawMars();
     starArray = makeStars();
