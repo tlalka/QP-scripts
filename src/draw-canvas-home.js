@@ -27,6 +27,14 @@
   marsX = marsRet[1];
   marsY = marsRet[2];
 
+  
+  function getMarsCenter(W){
+    marsR = W;
+    marsX = W / 2;
+    marsY = marsR * 1.25;
+    return [marsR, marsX, marsY];
+  }
+
   function resizeCanvas() {
     H = document.getElementById("overlay").offsetHeight;
     document.getElementById("bg").style.height = H;

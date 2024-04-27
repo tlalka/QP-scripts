@@ -23,10 +23,4 @@
     ctxBack.fillRect(0, 0, W, H);
   }
 
-  function getMarsCenter(W){
-    marsR = W;
-    marsX = W / 2;
-    marsY = marsR * 1.25;
-    return [marsR, marsX, marsY];
-  }
 
