@@ -67,7 +67,8 @@
   ).getPropertyValue("--planetglow");
 
   //record an array of stars
-  const starNum = 75;
+  const starNum = 25;
+  const starSize = 4;
   var stepA = 0.25;
   var stepAdir = 1;
   const speedA = 0.02;
@@ -114,7 +115,7 @@
     for (let i = 0; i < starNum; i++) {
       let x = W * Math.random();
       let y = H * Math.random();
-      let r = 5 * Math.random();
+      let r = starSize * (Math.random() + .75);
       let step = 0;
       let speed = speedY * (Math.random() * (1 - 0.1) + 0.1);
       stars[i] = new Star(x, y, r, step, speed);
