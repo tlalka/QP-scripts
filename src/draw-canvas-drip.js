@@ -4,12 +4,12 @@ const starSize = 4;
 var stepA = 0.25;
 var stepAdir = 1;
 const speedA = 0.02;
-const speedY = -0.25; //only works in one way
+const speedY = 0.25; //only works in one way
 var starArray = [];
 
 //Get context and screen size;
-let W = document.getElementById("overlay").offsetWidth;
-let H = document.getElementById("overlay").offsetHeight;
+var W = document.getElementById("book-container").offsetWidth;
+var H = document.getElementById("book-container").offsetHeight;
 const ctxStars = stars.getContext("2d");
 const ctxMars = mars.getContext("2d");
 const ctxBack = bg.getContext("2d");
