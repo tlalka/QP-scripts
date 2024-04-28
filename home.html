@@ -54,31 +54,71 @@
     z-index: 2;
     color: white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
   }
-  #bookstuff {
+  #first-text {
     width: 50%;
     padding: 50px;
     display: flex;
     flex-direction: column;
   }
-  #overlay {
-    height: 600px;
-  }
   #buttonbox {
     display: flex;
     justify-content: center;
   }
-  #animation-cont {
-    width: 500px;
-    height: 300px;
-    background-image: url(".\src\imgs\ani\umbra-base.png");
-    background-size: cover;
-    background-position: center;
+
+  #row-1 {
+    display: flex;
+    flex-direction: row;
+    z-index: 3;
+  }
+
+  #animation {
+    width: 50%;
+    padding-top: 33.33%;
+    background-image: url("./src/imgs/ani/umbra-base.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left bottom;
     transition: background-image 0.1s ease-in-out;
+  }
+  .ani-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #003366; */
+  }
+  .text-content {
+    padding: 20px;
+    flex: 1;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    width: 75%;
+    background: rgb(255, 226, 241);
+    box-shadow: 0 0 0.5px 0.25px white;
+    animation: pulseGlow 6s infinite ease-in-out;
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 1px 0.5px rgba(255, 255, 255, 0.37);
+    }
+    25% {
+      box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.49);
+    }
+    50% {
+      box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.61);
+    }
+    75% {
+      box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.49);
+    }
   }
 
   .pretty-button {
@@ -160,7 +200,7 @@
     }
   }
   @media (pointer: none), (pointer: coarse) {
-    #bookstuff {
+    #first-text {
       padding-left: 0px;
       padding-right: 0px;
     }
@@ -232,11 +272,20 @@
     }
   }
   @media (max-width: 1300px) {
-    #overlay {
+    #row-1 {
       flex-direction: column;
       height: auto;
     }
-    #bookstuff {
+    .ani-cont {
+      flex-direction: column;
+      height: auto;
+    }
+    #animation {
+      width: 100%;
+      border-bottom: 1px solid white;
+      min-height: 300px;
+    }
+    #first-text {
       align-self: center;
       width: 100%;
     }
@@ -342,25 +391,49 @@
 <body>
   <div id="book-container">
     <div id="overlay">
-      <div id="bookstuff">
-        <div id="inner-book-stuff">
-          <h1 class="bc">This planet will bleed you dry...</h1>
-          <br />
-          <br />
-          <p class="bc">
-            Enter Chryse, a city of dark secrets and forbidden pleasures where
-            nothing comes free.
-          </p>
-          <p class="glow">Surviving it may cost your humanity.</p>
+      <div id="row-1">
+        <div id="first-text">
+          <div id="inner-book-stuff">
+            <h1 class="bc">This planet will bleed you dry...</h1>
+            <br />
+            <br />
+            <p class="bc">
+              Enter Chryse, a city of dark secrets and forbidden pleasures where
+              nothing comes free.
+            </p>
+            <p class="glow">Surviving it may cost your humanity.</p>
+          </div>
+          <div id="buttonbox">
+            <button class="pretty-button" type="button">Order on Amazon</button>
+          </div>
         </div>
-        <div id="buttonbox">
-          <button class="pretty-button" type="button">Order on Amazon</button>
-        </div>
+
+        <img id="kindle2" class="kindle" src=".\src\imgs\two-book.png" />
+        <img id="kindle1" class="kindle" src=".\src\imgs\digital-mockup.png" />
       </div>
 
-      <img id="kindle2" class="kindle" src=".\src\imgs\two-book.png" />
-      <img id="kindle1" class="kindle" src=".\src\imgs\digital-mockup.png" />
+      <hr />
+
+      <div class="ani-cont">
+        <div id="animation"></div>
+        <div class="text-content">
+          <h1 style="font-family: Federant, Arial" class="big-font">
+            The Story
+          </h1>
+          <span style="font-family: 'Grenze Gotisch', Arial" class="big-font"
+            >S</span
+          ><span class="small-font"
+            >truggling to find his place in a hyper-capitalistic future where
+            the wealthy use blood-based medical treatments to extend their
+            youth, Dezi lucks his way into a job at a luxury resort where a VIP
+            becomes his regular guest. The eccentric immortal claims to be an
+            authentic vampire, and his ravenous appetites have Dezi questioning
+            whether he might be telling the truth.
+          </span>
+        </div>
+      </div>
     </div>
+
     <canvas id="bg"></canvas>
     <canvas id="stars"></canvas>
     <canvas id="mars"></canvas>
@@ -389,26 +462,15 @@
       <span style="font-family: 'Grenze Gotisch', Arial" class="big-font"
         >S</span
       ><span class="small-font"
-        >truggling to find his place in a world that sees him as another body to
-        throw into the grinder, Dezi flees his home colony after being framed
-        for a facility malfunction. He’s thrown into a world of dark luxury when
-        he lands a serving job at a high-end resort in the capital city of Mars
-        and a secretive guest selects him as his regular host. The VIP is a
-        perennial, one of the few wealthy enough to extend their lives
-        indefinitely through a blood-based treatment process, and he might be
-        Dezi’s ticket to paying off his bounty, but the mischievous immortal is
-        as eccentric as he is generous. He claims to be an authentic vampire,
-        and he becomes Dezi’s lifeline when a storm devastates the city,
-        trapping the resort’s blood-drinking clientele with a dwindling supply
-        of mortals. The problem is that accepting help from an immortal is never
-        free, and Dezi won't settle for being seen as a bloodbag. He wants to be
-        more than a toy or tool to those in power, but in this ruthless city,
-        the cost of keeping your humanity can be your life.</span
-      >
+        >truggling to find his place in a hyper-capitalistic future where the
+        wealthy use blood-based medical treatments to extend their youth, Dezi
+        lucks his way into a job at a luxury resort where a VIP becomes his
+        regular guest. The eccentric immortal claims to be an authentic vampire,
+        and his ravenous appetites have Dezi questioning whether he might be
+        telling the truth.
+      </span>
     </div>
   </div>
-
-  <div id="animation-cont"></div>
 
   <div class="divider"></div>
   <div id="footer">
@@ -471,11 +533,26 @@
 <script>
   let index = 0;
   const path = "./src/imgs/ani/";
-  const images = ["umbra-base", "umbra-blink-1", "umbra-blink-2", "umbra-blink-3"];
-  const aniMap = [[0, 300], [1, 300], [2, 300], [3, 300], [2, 300], [1, 300], [0, 300]];
-  const imageContainer = document.getElementById('animation-cont');
+  const images = [
+    "umbra-base",
+    "umbra-blink-1",
+    "umbra-blink-2",
+    "umbra-blink-3",
+    "umbra-smile-1",
+    "umbra-smile-2",
+    "umbra-smile-3",
+  ];
+  const aniMap = [
+    [0, 6000],
+    [1, 150],
+    [2, 150],
+    [3, 200],
+    [2, 100],
+    [1, 100],
+  ];
+  const imageContainer = document.getElementById("animation");
 
-  const preloadedImages = images.map(image => {
+  const preloadedImages = images.map((image) => {
     let img = new Image();
     img.src = path + image + ".png";
     return img;
@@ -486,10 +563,10 @@
     let delay = aniMap[index][1];
 
     imageContainer.style.backgroundImage = `url('${img}')`;
-    index = (index + 1) % aniMap.length;  // Simplify the wrap-around logic
+    index = (index + 1) % aniMap.length; // Simplify the wrap-around logic
 
-    setTimeout(changeImage, delay);  // Set next image change based on current frame's delay
+    setTimeout(changeImage, delay); // Set next image change based on current frame's delay
   }
 
-  changeImage();  // Initial call to start the animation loop
+  changeImage(); // Initial call to start the animation loop
 </script>
