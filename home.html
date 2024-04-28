@@ -152,11 +152,11 @@
     }
   }
   @media (pointer: none), (pointer: coarse) {
-    #bookstuff{
+    #bookstuff {
       padding-left: 0px;
       padding-right: 0px;
     }
-    #inner-book-stuff{
+    #inner-book-stuff {
       padding-left: 20px;
       padding-right: 20px;
     }
@@ -182,7 +182,7 @@
     .glow {
       /*font-size: 64px;*/
     }
-    #kindle {
+    .kindle {
       max-width: 350px !important;
       padding-left: 0px !important;
       padding-right: 0px !important;
@@ -199,26 +199,28 @@
       flex-direction: column !important;
     }
     a.social {
-     /* width: 96px !important;
+      /* width: 96px !important;
       height: 96px !important;
       margin: 18px !important;*/
     }
     img.social {
-     /* width: 88px !important;
+      /* width: 88px !important;
             height: 88px !important;*/
     }
-    div.social{
+    div.social {
       width: 100% !important;
     }
-    .small-footer{
+    .small-footer {
       /*font-size: 22px !important;*/
     }
   }
 
   @media (min-width: 1300px) {
-    #kindle {
-      width: 600px;
-      padding: 20px;
+    .kindle {
+      max-width: 600px;
+    }
+    #kindle1 {
+      display: none;
     }
   }
   @media (max-width: 1300px) {
@@ -230,10 +232,13 @@
       align-self: center;
       width: 100%;
     }
-    #kindle {
+    .kindle {
       align-self: center;
-      max-width: 600px;
+      max-width: 80%;
       padding: 40px;
+    }
+    #kindle1 {
+      display: none;
     }
     h1.bc {
       text-align: center;
@@ -248,6 +253,12 @@
     }
     .text-box {
       width: 100% !important;
+    }
+    #kindle1 {
+      display: block;
+    }
+    #kindle2 {
+      display: none;
     }
   }
 
@@ -338,7 +349,8 @@
         </div>
       </div>
 
-      <img id="kindle" src=".\src\imgs\two-book.png" />
+      <img id="kindle2" class="kindle" src=".\src\imgs\two-book.png" />
+      <img id="kindle1" class="kindle" src=".\src\imgs\digital-mockup.png" />
     </div>
     <canvas id="bg"></canvas>
     <canvas id="stars"></canvas>
@@ -443,4 +455,3 @@
 <script type="text/javascript" src="./src/draw-mars.js"></script>
 <script type="text/javascript" src="./src/draw-canvas-home.js"></script>
 <script type="text/javascript" src="./src/mailer.js"></script>
-
