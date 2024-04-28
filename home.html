@@ -72,6 +72,14 @@
     display: flex;
     justify-content: center;
   }
+  #animation-cont {
+    width: 500px;
+    height: 300px;
+    background-image: url(".\src\imgs\ani\umbra-base.png");
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.1s ease-in-out;
+  }
 
   .pretty-button {
     width: 250px;
@@ -256,6 +264,7 @@
     }
     #kindle1 {
       display: block;
+      padding: 0px;
     }
     #kindle2 {
       display: none;
@@ -398,6 +407,9 @@
       >
     </div>
   </div>
+
+  <div id="animation-cont"></div>
+
   <div class="divider"></div>
   <div id="footer">
     <span
@@ -455,3 +467,29 @@
 <script type="text/javascript" src="./src/draw-mars.js"></script>
 <script type="text/javascript" src="./src/draw-canvas-home.js"></script>
 <script type="text/javascript" src="./src/mailer.js"></script>
+
+<script>
+  let index = 0;
+  const path = "./src/imgs/ani/";
+  const images = ["umbra-base", "umbra-blink-1", "umbra-blink-2", "umbra-blink-3"];
+  const aniMap = [[0, 300], [1, 300], [2, 300], [3, 300], [2, 300], [1, 300], [0, 300]];
+  const imageContainer = document.getElementById('animation-cont');
+
+  const preloadedImages = images.map(image => {
+    let img = new Image();
+    img.src = path + image + ".png";
+    return img;
+  });
+
+  function changeImage() {
+    let img = path + images[aniMap[index][0]] + ".png";
+    let delay = aniMap[index][1];
+
+    imageContainer.style.backgroundImage = `url('${img}')`;
+    index = (index + 1) % aniMap.length;  // Simplify the wrap-around logic
+
+    setTimeout(changeImage, delay);  // Set next image change based on current frame's delay
+  }
+
+  changeImage();  // Initial call to start the animation loop
+</script>
