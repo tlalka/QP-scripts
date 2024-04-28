@@ -29,7 +29,7 @@
 
   
   function getMarsCenter(W){
-    marsR = W;
+    marsR = W * .75;
     marsX = W / 2;
     marsY = marsR * 1.25;
     return [marsR, marsX, marsY];

@@ -77,54 +77,54 @@
   }
 
   #umbra-ani {
-    width: 50%;
+    min-height: 400px;
     background-image: url("./src/imgs/ani/umbra-base.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left bottom;
     transition: background-image 0.1s ease-in-out;
-    min-height: 450px;
-  }
-  #dezi-ani {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%; /* Takes full width of the container */
-    padding-top: 30%; /* Maintains aspect ratio based on the width */
-    background-image: url("./src/imgs/ani/dezi-base.png");
-    background-size: contain;
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    transition: background-image 0.1s ease-in-out;
-    z-index: 1; /* Ensures it's behind the text content */
-  }
-  .dezi-cont {
-    display: flex;
-    flex-direction: column-reverse; /* Ensures text content is on top */
-    align-items: flex-start; /* Aligns children to the start of the flex container */
-    position: relative; /* Needed for absolute positioning inside */
-    height: fit-content;
-    overflow: hidden; /* Ensures no spillover from absolutely positioned elements */
-    min-height: 450px;
-    border-bottom: 1px solid white;
+    flex: 1;
   }
 
-  .ani-cont {
+  #umbra-cont {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     border-bottom: 1px solid white;
+    height: auto;
   }
   .text-content-u {
     padding: 10px;
     padding-bottom: 100px;
     flex: 1;
   }
+
+  #dezi-ani {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%; /* Full width to allow for coverage but will be clipped by the container's width */
+    height: 100%; /* Height will auto-adjust to content */
+    background-image: url("./src/imgs/ani/dezi-base.png");
+    background-size: contain; /* Ensures the entire image is visible, maintaining aspect ratio */
+    background-position: right bottom; /* Anchors the image to the bottom right */
+    background-repeat: no-repeat; /* Prevents repeating the background */
+    min-height: 400px;
+    z-index: 0; /* Ensures it's behind the text content */
+  }
+  #dezi-cont {
+    display: flex;
+    position: relative; /* Parent container needs relative positioning */
+    height: auto; /* Adjust height based on content or explicitly set a min-height */
+    min-height: 400px;
+    overflow: hidden; /* Ensures nothing spills outside the container */
+    border-bottom: 1px solid white; /* Visual aid */
+  }
   .text-content-d {
-    width: 70%;
+    position: relative; /* Ensures text content is layered on top of the image */
+    z-index: 1; /* Higher z-index to float above the background image */
     padding: 50px;
-    padding-bottom: 100px;
-    flex: 1;
+    width: 70%; /* Takes the full width of the container */
   }
 
   hr {
@@ -295,6 +295,21 @@
   }
 
   @media (min-width: 1300px) {
+    #row-1 {
+      padding-left: 7%;
+      padding-right: 7%;
+    }
+    #umbra-cont {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    #dezi-cont {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    #dezi-ani {
+      margin-right: 10%;
+    }
     .kindle {
       max-width: 600px;
     }
@@ -307,12 +322,21 @@
       flex-direction: column;
       height: auto;
     }
-    .ani-cont {
+    #umbra-cont {
       flex-direction: column;
       height: auto;
     }
-    .dezi-cont {
+    #dezi-cont {
       min-height: 600px;
+      flex-direction: column;
+      height: auto;
+    }
+    .text-content-d {
+      width: 60%;
+    }
+    .text-content-u {
+      padding-left: 50px;
+      padding-right: 50px;
     }
     #umbra-ani {
       width: 100%;
@@ -320,6 +344,7 @@
       border-bottom: 1px solid white;
     }
     #dezi-ani {
+      background-size: 75%;
       width: 100%;
       min-height: 300px;
     }
@@ -343,6 +368,37 @@
     }
   }
   @media (max-width: 900px) {
+    #umbra-ani {
+      width: 100%;
+      min-height: 300px;
+    }
+    #umbra-ani {
+      width: 100%;
+      min-height: 300px;
+    }
+    #dezi-ani {
+      background-size: 150%;
+      position: relative;
+    }
+    #umbra-cont {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    #dezi-cont {
+      flex-direction: column;
+    }
+    .text-content-d {
+      padding-left: 5%;
+      padding-right: 5%;
+      width: auto;
+      padding-top: 20px;
+      padding-bottom: 0px;
+    }
+    .text-content-u {
+      padding-bottom: 20px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
     #text-box-parent {
       flex-wrap: wrap;
     }
@@ -452,7 +508,7 @@
 
       <hr />
 
-      <div class="ani-cont">
+      <div id="umbra-cont">
         <div id="umbra-ani"></div>
         <div class="text-content-u">
           <h1 style="font-family: Federant, Arial" class="big-font">
@@ -471,7 +527,7 @@
         </div>
       </div>
 
-      <div class="dezi-cont">
+      <div id="dezi-cont">
         <div class="text-content-d">
           <h1 style="font-family: Federant, Arial" class="big-font">
             The Story
@@ -586,83 +642,4 @@
 <script type="text/javascript" src="./src/draw-mars.js"></script>
 <script type="text/javascript" src="./src/draw-canvas-home.js"></script>
 <script type="text/javascript" src="./src/mailer.js"></script>
-
-<script>
-  class Animator {
-    constructor(containerId, images, map, imagePath) {
-      this.index = 0;
-      this.path = imagePath;
-      this.images = images;
-      this.aniMap = map;
-      this.imageContainer = document.getElementById(containerId);
-      this.preloadedImages = this.images.map((image) => {
-        let img = new Image();
-        img.src = this.path + image + ".png";
-        return img;
-      });
-    }
-
-    changeImage() {
-      let img = this.path + this.images[this.aniMap[this.index][0]] + ".png";
-      let delay = this.aniMap[this.index][1];
-
-      this.imageContainer.style.backgroundImage = `url('${img}')`;
-      this.index = (this.index + 1) % this.aniMap.length;
-
-      setTimeout(() => this.changeImage(), delay); // Use an arrow function to maintain the context of 'this'
-    }
-
-    start() {
-      this.changeImage(); // Start the animation
-    }
-  }
-
-  // Usage
-  const umbraImages = [
-    "umbra-base",
-    "umbra-blink-1",
-    "umbra-blink-2",
-    "umbra-blink-3",
-  ];
-  const umbraMap = [
-    [1, 150],
-    [2, 150],
-    [3, 200],
-    [2, 100],
-    [1, 100],
-    [0, 3000],
-  ];
-  const animatorU = new Animator(
-    "umbra-ani",
-    umbraImages,
-    umbraMap,
-    "./src/imgs/ani/"
-  );
-  animatorU.start();
-
-  // Usage
-  const deziImages = [
-    "dezi-base",
-    "dezi-blink-1",
-    "dezi-blink-2",
-    "dezi-blink-3",
-    "dezi-blink-4",
-  ];
-  const deziMap = [
-    [0, 1500],
-    [1, 75],
-    [2, 75],
-    [3, 75],
-    [4, 200],
-    [3, 100],
-    [2, 100],
-    [0, 1500],
-  ];
-  const animatorD = new Animator(
-    "dezi-ani",
-    deziImages,
-    deziMap,
-    "./src/imgs/ani/"
-  );
-  animatorD.start();
-</script>
+<script type="text/javascript" src="./src/animator.js"></script>
