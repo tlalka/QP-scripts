@@ -183,7 +183,6 @@
       /*font-size: 64px;*/
     }
     #kindle {
-      content: url("book.png");
       max-width: 350px !important;
       padding-left: 0px !important;
       padding-right: 0px !important;
@@ -338,7 +337,8 @@
           <button class="pretty-button" type="button">Order on Amazon</button>
         </div>
       </div>
-      <img id="kindle" src="book2.png" />
+
+      <img id="kindle" src=".\src\imgs\two-book.png" />
     </div>
     <canvas id="bg"></canvas>
     <canvas id="stars"></canvas>
@@ -442,27 +442,5 @@
 <script type="text/javascript" src="./src/draw-stars.js"></script>
 <script type="text/javascript" src="./src/draw-mars.js"></script>
 <script type="text/javascript" src="./src/draw-canvas-home.js"></script>
+<script type="text/javascript" src="./src/mailer.js"></script>
 
-<!-- MailerLite Universal -->
-<script>
-  (function (w, d, e, u, f, l, n) {
-    (w[f] =
-      w[f] ||
-      function () {
-        (w[f].q = w[f].q || []).push(arguments);
-      }),
-      (l = d.createElement(e)),
-      (l.async = 1),
-      (l.src = u),
-      (n = d.getElementsByTagName(e)[0]),
-      n.parentNode.insertBefore(l, n);
-  })(
-    window,
-    document,
-    "script",
-    "https://assets.mailerlite.com/js/universal.js",
-    "ml"
-  );
-  ml("account", "642986");
-</script>
-<!-- End MailerLite Universal -->
