@@ -101,8 +101,8 @@
     padding-bottom: 100px;
     flex: 1;
     display: flex;
-    flex-direction: column; /* Aligns children vertically */
-    justify-content: space-evenly; /* Distributes spacing evenly */
+    flex-direction: column; 
+    justify-content: space-evenly; 
     min-height: 400px;
   }
 
@@ -110,28 +110,27 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 100%; /* Full width to allow for coverage but will be clipped by the container's width */
-    height: 100%; /* Height will auto-adjust to content */
+    width: 100%; 
+    height: 100%; 
     background-image: url("./src/imgs/ani/dezi-base.png");
-    background-size: contain; /* Ensures the entire image is visible, maintaining aspect ratio */
-    background-position: right bottom; /* Anchors the image to the bottom right */
-    background-repeat: no-repeat; /* Prevents repeating the background */
+    background-size: contain; 
+    background-position: right bottom; 
+    background-repeat: no-repeat; 
     min-height: 400px;
-    z-index: 0; /* Ensures it's behind the text content */
+    z-index: 0; 
   }
   #dezi-cont {
     display: flex;
-    position: relative; /* Parent container needs relative positioning */
-    height: auto; /* Adjust height based on content or explicitly set a min-height */
+    position: relative; 
+    height: auto; 
     min-height: 500px;
-    overflow: hidden; /* Ensures nothing spills outside the container */
-    border-bottom: 1px solid white; /* Visual aid */
+    border-bottom: 1px solid white; 
   }
   .text-content-d {
-    position: relative; /* Ensures text content is layered on top of the image */
-    z-index: 1; /* Higher z-index to float above the background image */
+    position: relative; 
+    z-index: 1; 
     padding: 50px;
-    width: 70%; /* Takes the full width of the container */
+    width: 70%; 
   }
 
   hr {
