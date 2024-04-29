@@ -24,12 +24,12 @@
     background-color: var(--paper);
   }
   h1.bc {
-    font-family: 'Grenze Gotisch', "Arial";
+    font-family: "Grenze Gotisch", "Arial";
     font-weight: 300;
     font-size: 64px;
   }
   h1 {
-    font-family: 'Grenze Gotisch', "Arial";
+    font-family: "Grenze Gotisch", "Arial";
     font-weight: 400;
     vertical-align: baseline;
   }
@@ -202,13 +202,20 @@
     margin-top: -10px;
     margin-left: 20px;
     text-shadow: 0 0 5cm #ff004c, 0 0 10px #ff0040, 0 0 20px #8f0000,
-        0 0 30px #940000;
+      0 0 30px #940000;
   }
   .big-font {
     font-size: 32px;
   }
   .small-font {
     font-size: 21px;
+  }
+  #text-box-parent {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #chibi{
+    height: 600px;
   }
 
   @media (pointer: none), (pointer: coarse) {
@@ -360,7 +367,7 @@
     #umbra-cont {
       padding-left: 5%;
       padding-right: 5%;
-      flex-direction: column-reverse; 
+      flex-direction: column-reverse;
     }
     #dezi-cont {
       flex-direction: column;
@@ -380,6 +387,8 @@
     }
     #text-box-parent {
       flex-wrap: wrap;
+      padding-right: 0px;
+      padding-left: 0px;
     }
     .text-box {
       width: 100% !important;
@@ -391,6 +400,9 @@
     #kindle2 {
       display: none;
     }
+    #chibi{
+    height: 400px;
+  }
   }
 
   #text-box-parent {
@@ -406,7 +418,6 @@
     vertical-align: baseline;
     width: 50%;
     padding: 10px;
-    margin-bottom: 80px;
   }
   #footer {
     background-color: #040005;
@@ -471,8 +482,8 @@
             <br />
             <br />
             <p class="bc">
-              Enter Chryse, a city of dark secrets and forbidden pleasures where
-              nothing comes free.
+              Enter Chryse, a city of grime and glitter where nothing comes
+              free.
             </p>
             <p class="glow">Surviving it may cost your humanity.</p>
           </div>
@@ -494,7 +505,7 @@
             Praise for <em>Bleeding Mars</em>
           </h1>
           <span class="small-font">
-            "Three words: Gay space vampire. I went as feral as a blood-starved vampire over Umbra."
+            "Three words: Gay space vampires. I went as feral over Umbra."
           </span>
           <br />
           <span class="small-font">
@@ -549,7 +560,10 @@
   </div>
 
   <div id="text-box-parent">
-    <div class="text-box">
+    <div
+      class="text-box"
+      style="justify-content: center; display: flex; flex-direction: column"
+    >
       <p style="text-align: center">
         <span style="font-family: Federant, Arial" class="big-font"
           >Get a <em>Bleeding Mars</em> novella for free!</span
@@ -557,25 +571,28 @@
       </p>
       <p style="text-align: center">
         <span class="small-font"
-          >Sign up to my newsletter to get <em>Bleeding Mars: Looking Down</em></span
+          >Sign up to my newsletter to get
+          <em>Bleeding Mars: Looking Down</em> along with update on future
+          installments.</span
         >
       </p>
-
       <div>
         <div class="ml-embedded" data-form="6S9pvi"></div>
       </div>
     </div>
     <div class="text-box">
-     
-
-
+      <img id="chibi" src=".\src\imgs\chibis.png" />
     </div>
   </div>
 
   <div class="divider"></div>
   <div id="footer">
     <span
-      style="vertical-align: baseline; font-family: 'Grenze Gotisch', 'Arial'; font-size: 48px;"
+      style="
+        vertical-align: baseline;
+        font-family: 'Grenze Gotisch', 'Arial';
+        font-size: 48px;
+      "
       class="big-font"
       >Connect with me on social media</span
     >
