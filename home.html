@@ -24,12 +24,12 @@
     background-color: var(--paper);
   }
   h1.bc {
-    font-family: "Federant";
+    font-family: 'Grenze Gotisch', "Arial";
     font-weight: 300;
-    font-size: 58px;
+    font-size: 64px;
   }
   h1 {
-    font-family: Federant, Arial;
+    font-family: 'Grenze Gotisch', "Arial";
     font-weight: 400;
     vertical-align: baseline;
   }
@@ -47,6 +47,9 @@
   }
   canvas {
     position: absolute;
+  }
+  br {
+    margin-top: 30px;
   }
   #overlay {
     /*flex*/
@@ -77,7 +80,7 @@
   }
 
   #umbra-ani {
-    min-height: 500px;
+    min-height: 400px;
     background-image: url("./src/imgs/ani/umbra-base.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -97,6 +100,10 @@
     padding: 10px;
     padding-bottom: 100px;
     flex: 1;
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    justify-content: space-evenly; /* Distributes spacing evenly */
+    min-height: 400px;
   }
 
   #dezi-ani {
@@ -133,23 +140,6 @@
     width: 75%;
     background: rgb(255, 226, 241);
     box-shadow: 0 0 0.5px 0.25px white;
-    animation: pulseGlow 6s infinite ease-in-out;
-  }
-
-  @keyframes pulseGlow {
-    0%,
-    100% {
-      box-shadow: 0 0 1px 0.5px rgba(255, 255, 255, 0.37);
-    }
-    25% {
-      box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.49);
-    }
-    50% {
-      box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.61);
-    }
-    75% {
-      box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.49);
-    }
   }
 
   .pretty-button {
@@ -207,11 +197,12 @@
     font-size: 80px;
     color: #fff;
     text-align: center;
-    animation: glow 5s ease-in-out infinite alternate;
     font-size: 30px;
     font-style: italic;
     margin-top: -10px;
     margin-left: 20px;
+    text-shadow: 0 0 5cm #ff004c, 0 0 10px #ff0040, 0 0 20px #8f0000,
+        0 0 30px #940000;
   }
   .big-font {
     font-size: 32px;
@@ -220,16 +211,6 @@
     font-size: 21px;
   }
 
-  @-webkit-keyframes glow {
-    from {
-      text-shadow: 0 0 5cm #ff759e, 0 0 10px #ff5e86, 0 0 20px #ff0000,
-        0 0 30px #940000;
-    }
-    to {
-      text-shadow: 0 0 7px #ff0040, 0 0 15px #ff0000, 0 0 30px #940000,
-        0 0 40px #ac1159;
-    }
-  }
   @media (pointer: none), (pointer: coarse) {
     #first-text {
       padding-left: 0px;
@@ -372,10 +353,6 @@
       width: 100%;
       min-height: 300px;
     }
-    #umbra-ani {
-      width: 100%;
-      min-height: 300px;
-    }
     #dezi-ani {
       background-size: 150%;
       position: relative;
@@ -383,6 +360,7 @@
     #umbra-cont {
       padding-left: 5%;
       padding-right: 5%;
+      flex-direction: column-reverse; 
     }
     #dezi-cont {
       flex-direction: column;
@@ -398,6 +376,7 @@
       padding-bottom: 20px;
       padding-left: 0px;
       padding-right: 0px;
+      min-height: 300px;
     }
     #text-box-parent {
       flex-wrap: wrap;
@@ -512,17 +491,30 @@
         <div id="umbra-ani"></div>
         <div class="text-content-u">
           <h1 style="font-family: Federant, Arial" class="big-font">
-            The Story
+            Praise for <em>Bleeding Mars</em>
           </h1>
-          <span style="font-family: 'Grenze Gotisch', Arial" class="big-font"
-            >S</span
-          ><span class="small-font"
-            >truggling to find his place in a hyper-capitalistic future where
-            the wealthy use blood-based medical treatments to extend their
-            youth, Dezi lucks his way into a job at a luxury resort where a VIP
-            becomes his regular guest. The eccentric immortal claims to be an
-            authentic vampire, and his ravenous appetites have Dezi questioning
-            whether he might be telling the truth.
+          <span class="small-font">
+            "Three words: Gay space vampire. I went as feral as a blood-starved vampire over Umbra."
+          </span>
+          <br />
+          <span class="small-font">
+            "Quazar weaves a genre-defying exploration of what it means to be
+            alive in a world of dead-hearted capitalists where you don’t own the
+            clothes on your back or even the blood in your veins . . . Dezi’s
+            journey to discover the truth about this dystopia and himself is
+            unforgettable."
+          </span>
+          <br />
+          <span class="small-font">
+            "Get ready to be consumed by this steamy and subversive tale of
+            passion, power, and the price of immortality. Dezi and Umbra's dark
+            romance will seize your heart… and then tear it out."
+          </span>
+          <br />
+          <span class="small-font">
+            "Bleeding Mars is a stunning debut that blends terrifying thrills,
+            forbidden romance, and searing social commentary. You have NEVER
+            read vampires like these before."
           </span>
         </div>
       </div>
@@ -533,14 +525,18 @@
             The Story
           </h1>
           <span style="font-family: 'Grenze Gotisch', Arial" class="big-font"
-            >S</span
+            >W</span
           ><span class="small-font"
-            >truggling to find his place in a hyper-capitalistic future where
-            the wealthy use blood-based medical treatments to extend their
-            youth, Dezi lucks his way into a job at a luxury resort where a VIP
-            becomes his regular guest. The eccentric immortal claims to be an
-            authentic vampire, and his ravenous appetites have Dezi questioning
-            whether he might be telling the truth.
+            >hen Dezi is framed for a malfunction at his home colony, he flees
+            for the capital of Mars and ends up neck deep in a city rife with
+            gangs and space-age aristocracy. He lands a serving job at a
+            high-end resort where a secretive guest selects him as his regular
+            host. The VIP is a perennial, one of the few wealthy enough to
+            extend their lives through a blood-based medical process, and he
+            might be Dezi’s ticket to paying off the bounty hanging over his
+            head, but the immortal is as eccentric as he is generous. He claims
+            to be an authentic vampire, and his appetites have Dezi questioning
+            whether he might just be telling the truth.
           </span>
         </div>
         <div id="dezi-ani"></div>
@@ -556,12 +552,12 @@
     <div class="text-box">
       <p style="text-align: center">
         <span style="font-family: Federant, Arial" class="big-font"
-          >Get the first six chapters FREE!</span
+          >Get a <em>Bleeding Mars</em> novella for free!</span
         >
       </p>
       <p style="text-align: center">
         <span class="small-font"
-          >Sign up to my newsletter to get the first six chapters free.</span
+          >Sign up to my newsletter to get <em>Bleeding Mars: Looking Down</em></span
         >
       </p>
 
@@ -570,25 +566,16 @@
       </div>
     </div>
     <div class="text-box">
-      <h1 style="font-family: Federant, Arial" class="big-font">The Story</h1>
+     
 
-      <span style="font-family: 'Grenze Gotisch', Arial" class="big-font"
-        >S</span
-      ><span class="small-font"
-        >truggling to find his place in a hyper-capitalistic future where the
-        wealthy use blood-based medical treatments to extend their youth, Dezi
-        lucks his way into a job at a luxury resort where a VIP becomes his
-        regular guest. The eccentric immortal claims to be an authentic vampire,
-        and his ravenous appetites have Dezi questioning whether he might be
-        telling the truth.
-      </span>
+
     </div>
   </div>
 
   <div class="divider"></div>
   <div id="footer">
     <span
-      style="vertical-align: baseline; font-family: Federant"
+      style="vertical-align: baseline; font-family: 'Grenze Gotisch', 'Arial'; font-size: 48px;"
       class="big-font"
       >Connect with me on social media</span
     >
