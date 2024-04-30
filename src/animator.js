@@ -46,7 +46,7 @@ class Animator {
     "umbra-ani",
     umbraImages,
     umbraMap,
-    "../src/imgs/ani/"
+    "./src/imgs/ani/"
   );
   animatorU.start();
 
@@ -72,6 +72,6 @@ class Animator {
     "dezi-ani",
     deziImages,
     deziMap,
-    "../src/imgs/ani/"
+    "./src/imgs/ani/"
   );
   animatorD.start();
