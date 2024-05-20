@@ -1,6 +1,6 @@
 
   //record an array of stars
-  const starNum = 25;
+  const starNum = 50;
   const starSize = 4;
   var stepA = 0.25;
   var stepAdir = 1;
