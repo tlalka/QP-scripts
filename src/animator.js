@@ -35,12 +35,12 @@ class Animator {
     "umbra-blink-3",
   ];
   const umbraMap = [
+    [0, 2400],
     [1, 120],
     [2, 120],
     [3, 180],
     [2, 60],
     [1, 60],
-    [0, 2400],
   ];
   const animatorU = new Animator(
     "umbra-ani",
