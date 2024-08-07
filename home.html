@@ -71,6 +71,8 @@
   #buttonbox {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    white-space: nowrap;
   }
 
   #row-1 {
@@ -84,7 +86,7 @@
     background-image: url("./src/imgs/ani/umbra-base.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    background-position: left bottom;
+    background-position: center;
     transition: background-image 0.1s ease-in-out;
     flex: 1;
   }
@@ -407,6 +409,9 @@
     #chibi {
       height: 400px;
     }
+    #buttonbox{
+      white-space: normal;
+    }
   }
 
   #text-box-parent {
@@ -486,31 +491,45 @@
             <br />
             <br />
             <p class="bc">
-              For fans of Gideon the Ninth and Silver Under Nightfall, Bleeding
-              Mars throws you into a dystopian future were the interplanetary
-              elite literally drink blood. This LGBT+ slow burn subverts vampire
-              tropes with a dose of spice and gray morals.
+              When a young man on the run from a criminal bounty flees to the neon-soaked streets of Chryse City, he becomes entangled with an immortal who keeps more secrets than friends.
               <br />
+              <br />
+              Like Gideon the Ninth meets Silver Under Nightfall, Bleeding Mars is a queer sci-fi that offers a fresh take on classic vampire tropes.
             </p>
-            <p class="glow">
+            <!---<p class="glow">
               Welcome to Chryse City, where the young seek their fortunes and
               the wealthy never die...
-            </p>
+            </p> --->
           </div>
           <div id="buttonbox">
-            <a target="_blank" href="https://amzn.to/3V5ea4C">
-              <button class="pretty-button" type="button">
-                Order on Amazon
-              </button>
-            </a>
-            <a
-              target="_blank"
-              href="https://www.amazon.com/dp/B0D5GRJXGM/?sr=#customerReviews"
-            >
-              <button class="pretty-button" type="button">
-                Read the reviews
-              </button>
-            </a>
+            <div style="display: flex; align-items: center; justify-content: center; text-align: center;">
+              <p>
+                <span style="font-weight: 400; font-size: 28px; font-family: Federant, Arial; margin: 0px;"> eBook $</span>
+                <span style="font-weight: 400; font-size: 46px; font-family: Grenze Gotisch, Arial; margin: 4px; padding-bottom: 15px;">5.99 </span> 
+                <span style="font-weight: 400; font-size: 28px; font-family: Federant, Arial; margin: 0px;"> or Kindle Unlimited </span>
+              </p>
+              <a target="_blank" href="https://www.amazon.com/dp/B0D5GRJXGM?maas=maas_adg_327F1F24B70D471061C81A6A7DC0885E_afap_abs&ref_=aa_maas&tag=maas">
+                <button class="pretty-button" type="button">
+                  Order on Amazon
+                </button>
+              </a>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; text-align: center;">
+              <p>
+                <span style="font-weight: 400; font-size: 28px; font-family: Federant, Arial; margin: 0px;"> Paperbacks </span>
+                <span style="font-weight: 400; font-size: 36px; font-family: Grenze Gotisch, Arial; margin: 4px; padding-bottom: 8px; opacity: 0.7;"><s>$19.99 </s></span> 
+                <span style="font-weight: 400; font-size: 28px; font-family: Federant, Arial; margin: 0px;"> $</span>
+                <span style="font-weight: 400; font-size: 46px; font-family: Grenze Gotisch, Arial; margin: 4px; padding-bottom: 15px;">15.99! </span> 
+              </p>
+              <a
+                target="_blank"
+                href="https://shop.ingramspark.com/b/084?c9U42SkcSAhp4DgroPqwceHyYnmE5SNoYqDf3SvUD9X"
+              >
+                <button class="pretty-button" type="button">
+                  Order direct for 20% off 
+                </button>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -573,21 +592,11 @@
           <span style="font-family: 'Grenze Gotisch', Arial" class="big-font"
             >D</span
           ><span class="small-font"
-            >ezi doesn't own the clothes on his back or the blood in his veins.
-            He's a college dropout working a dead-end job on the most backwater
-            planet humanity has ever colonized. He'd always dreamed of traveling
-            the system, but when he's framed for a facility malfunction, he's
-            forced to flee to the capital of Mars—a city teeming with gangs and
-            space-age aristocracy. <br />
+            >ezi doesn't own the clothes on his back or the blood in his veins. He's a college dropout working a dead-end job on the most backwater planet humanity has ever colonized. He'd always dreamed of traveling the system, but when he's framed for a facility malfunction, he's forced to flee to the capital of Mars-a city teeming with gangs and space-age aristocracy. <br />
             <br />
-            &emsp; He manages to land a job at a luxury casino where a masked
-            VIP selects him as his regular host. Umbra is a perennial, one of
-            the few wealthy enough to extend their lives through a blood-based
-            medical process, and he might be Dezi’s ticket to paying off the
-            bounty hunters chasing him down, but the immortal is as eccentric as
-            he is generous. He claims to be an authentic vampire, and his
-            appetites have Dezi questioning whether he might just be telling the
-            truth.
+            &emsp; He manages to land a job at a luxury casino where a VIP selects him as his regular host. Umbra is a perennial, one of the few wealthy enough to extend their lives through a blood-based medical process, and he might be Dezi's ticket to paying off his bounty, but the immortal is as eccentric as he is generous. He claims to be an authentic vampire, and his appetites have Dezi questioning whether he might just be telling the truth.<br />
+            <br />
+            &emsp; As Dezi falls headfirst into a web of seduction and deceit, he must decide what he's willing to do to survive a city where the weak end up as blood bags.
           </span>
         </div>
         <div id="dezi-ani"></div>
