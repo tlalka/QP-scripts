@@ -1,0 +1,30 @@
+ :root {
+    --darkspace: #040005;
+    --planetglow: #ac1159;
+    --mars: #880606;
+    --paper: #e1d7d2;
+    --orange: #cd5a0a;
+  }
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+  canvas {
+    position: absolute;
+  }
+  #book-container {
+    height: 600px;
+  }
+  .overlay {
+    /*flex*/
+    position: absolute;
+    z-index: 2;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+    justify-content: space-between;
+    width: 100%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
