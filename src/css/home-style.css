@@ -1,17 +1,4 @@
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Spectral"
-/>
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Federant"
-/>
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Grenze+Gotisch"
-/>
 
-<style>
   :root {
     --darkspace: #040005;
     --planetglow: #ac1159;
@@ -71,6 +58,14 @@
   #buttonbox {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    white-space: nowrap;
+  }
+  .innerbuttonbox{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
   }
 
   #row-1 {
@@ -81,10 +76,10 @@
 
   #umbra-ani {
     min-height: 400px;
-    background-image: url("../src/imgs/ani/umbra-base.png");
-    background-size: cover;
+    background-image: url("./src/imgs/ani/umbra-base.png");
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-position: left top;
+    background-position: center;
     transition: background-image 0.1s ease-in-out;
     flex: 1;
   }
@@ -112,7 +107,7 @@
     right: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../src/imgs/ani/dezi-base.png");
+    background-image: url("./src/imgs/ani/dezi-base.png");
     background-size: contain;
     background-position: right bottom;
     background-repeat: no-repeat;
@@ -142,8 +137,8 @@
   }
 
   .pretty-button {
-    width: 250px;
-    height: 60px;
+    margin: 10px;
+    padding: 5px 15px 5px 15px;
     color: #b30000;
     font-size: larger;
     font-family: "Spectral";
@@ -155,7 +150,6 @@
     display: inline-block;
     outline: none;
     line-height: 42px;
-    padding: 0;
     border: none;
     background: #ffffff;
   }
@@ -249,7 +243,7 @@
       /*font-size: 64px;*/
     }
     .kindle {
-      max-width: 350px !important;
+      /*max-width: 350px !important;*/
       padding-left: 0px !important;
       padding-right: 0px !important;
       padding-bottom: 20px;
@@ -330,6 +324,8 @@
       width: 100%;
       min-height: 600px;
       border-bottom: 1px solid white;
+      background-size: cover;
+      background-position: left top;
     }
     #dezi-ani {
       background-size: 75%;
@@ -354,11 +350,21 @@
     p.bc {
       text-align: center;
     }
+    #text-box-parent {
+      flex-wrap: wrap;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    .text-box {
+      width: 100% !important;
+    }
   }
-  @media (max-width: 900px) {
+  @media (max-width: 500px) {
     #umbra-ani {
       width: 100%;
       min-height: 300px;
+      background-size: cover;
+      background-position: left top;
     }
     #dezi-ani {
       background-size: 150%;
@@ -385,23 +391,22 @@
       padding-right: 0px;
       min-height: 300px;
     }
-    #text-box-parent {
-      flex-wrap: wrap;
-      padding-right: 0px;
-      padding-left: 0px;
-    }
-    .text-box {
-      width: 100% !important;
-    }
     #kindle1 {
       display: block;
       padding: 0px;
+      max-width: 100%;
     }
     #kindle2 {
       display: none;
     }
     #chibi {
       height: 400px;
+    }
+    #buttonbox{
+      white-space: normal;
+    }
+    .innerbuttonbox{
+    flex-direction: column;
     }
   }
 
@@ -470,196 +475,3 @@
     position: relative;
     box-sizing: border-box;
   }
-</style>
-
-<body>
-  <div id="book-container">
-    <div id="overlay">
-      <div id="row-1">
-        <div id="first-text">
-          <div id="inner-book-stuff">
-            <h1 class="bc">This planet will bleed you dry...</h1>
-            <br />
-            <br />
-            <p class="bc">
-              For fans of Gideon the Ninth and Silver Under Nightfall, Bleeding
-              Mars throws you into a world where the interplanetary elite
-              literally drink blood; this LGBT+ romance subverts vampires tropes
-              with a does of spice and gray morals.
-              <br />
-            </p>
-            <p class="glow">
-              Enter Chryse, a city where every choice has a price.
-            </p>
-          </div>
-          <div id="buttonbox">
-            <button class="pretty-button" type="button">Order on Amazon</button>
-          </div>
-        </div>
-
-        <img
-          id="kindle2"
-          class="kindle"
-          src="..\src\imgs\two-book.png"
-          alt="Bleeding Mars"
-        />
-        <img
-          id="kindle1"
-          class="kindle"
-          src="..\src\imgs\digital-mockup.png"
-          alt="Bleeding Mars"
-        />
-      </div>
-
-      <hr />
-
-      <div id="umbra-cont">
-        <div id="umbra-ani"></div>
-        <div class="text-content-u">
-          <h1 style="font-family: Federant, Arial" class="big-font">
-            Praise for <em>Bleeding Mars</em>
-          </h1>
-          <span class="small-font">
-            "Quazar weaves a genre-defying exploration of what it means to be
-            alive in a world of dead-hearted capitalists where you don’t own the
-            clothes on your back or the blood in your veins . . . Dezi’s journey
-            to discover the truth about this dystopia and himself is
-            unforgettable."
-          </span>
-          <br />
-          <span class="small-font">
-            "Three words: Gay space vampires. Umbra's scenes drove me feral.
-            ⭐⭐⭐⭐⭐/5 🌶️🌶️/5."
-          </span>
-          <br />
-          <span class="small-font">
-            "Get ready to be consumed by this steamy and subversive tale of
-            passion, power, and the price of immortality. Dezi and Umbra's dark
-            romance will seize your heart… and then tear it out."
-          </span>
-          <br />
-          <span class="small-font">
-            "Bleeding Mars is a stunning debut that blends terrifying thrills,
-            forbidden romance, and searing social commentary. You have NEVER
-            read vampires like these before."
-          </span>
-        </div>
-      </div>
-
-      <div id="dezi-cont">
-        <div class="text-content-d">
-          <h1 style="font-family: Federant, Arial" class="big-font">
-            The Story
-          </h1>
-          <span style="font-family: 'Grenze Gotisch', Arial" class="big-font"
-            >W</span
-          ><span class="small-font"
-            >hen Dezi is framed for a malfunction at his home colony, he flees
-            for the capital of Mars and ends up neck deep in a city teeming with
-            gangs and space-age aristocracy. There, he lands a job at a high-end
-            resort where a secretive guest selects him as his regular host. The
-            VIP is a perennial, one of the few wealthy enough to extend their
-            lives through a blood-based medical process, and he might be Dezi’s
-            ticket to paying off the bounty hunters chasing him down, but the
-            immortal is as eccentric as he is generous. He claims to be an
-            authentic vampire, and his appetites have Dezi questioning whether
-            he might just be telling the truth.
-          </span>
-        </div>
-        <div id="dezi-ani"></div>
-      </div>
-    </div>
-
-    <canvas id="bg"></canvas>
-    <canvas id="stars"></canvas>
-    <canvas id="mars"></canvas>
-  </div>
-
-  <div id="text-box-parent">
-    <div
-      class="text-box"
-      style="justify-content: center; display: flex; flex-direction: column"
-    >
-      <p style="text-align: center">
-        <span style="font-family: Federant, Arial" class="big-font"
-          >Get a <em>Bleeding Mars</em> novella for free!</span
-        >
-      </p>
-      <p style="text-align: center">
-        <span class="small-font"
-          >Sign up to my newsletter to get
-          <em>Bleeding Mars: Looking Down</em> along with update on future
-          installments.</span
-        >
-      </p>
-      <div>
-        <div class="ml-embedded" data-form="6S9pvi"></div>
-      </div>
-    </div>
-    <div class="text-box">
-      <img id="chibi" src="..\src\imgs\chibis.png" />
-    </div>
-  </div>
-
-  <div class="divider"></div>
-  <div id="footer">
-    <span
-      style="
-        vertical-align: baseline;
-        font-family: 'Grenze Gotisch', 'Arial';
-        font-size: 48px;
-      "
-      class="big-font"
-      >Connect with me on social media</span
-    >
-    <div class="social">
-      <div>
-        <a
-          href="https://www.google.com/url?q=https%3A%2F%2Fwww.tiktok.com%2F%40asherquazar&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1oD8Yr2wFqZca_VPeX-gCO"
-          target="_blank"
-          class="social"
-          style="
-            background-color: #000000;
-            background-image: linear-gradient(#000000, #000000);
-          "
-          ><img
-            src="https://ssl.gstatic.com/atari/images/sociallinks/tiktok_colored_light_44dp.png"
-            alt="TikTok"
-            class="social" /></a
-        ><a
-          href="https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FAsher-Quazar%2F61552215930211%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0xGgxIWh0spb5l68u_Nsvl"
-          target="_blank"
-          class="social"
-          style="
-            background-color: #1877f2;
-            background-image: linear-gradient(#1877f2, #1877f2);
-          "
-          ><img
-            src="https://ssl.gstatic.com/atari/images/sociallinks/facebook_white_44dp.png"
-            alt="Facebook"
-            class="social" /></a
-        ><a
-          href="https://www.google.com/url?q=https%3A%2F%2Fwww.instagram.com%2Fasherquazar%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2qwuEYGSn9SDdOnGP44T5U"
-          target="_blank"
-          class="social"
-          style="
-            background-color: #fe005c;
-            background-image: linear-gradient(#fe005c, #fe005c);
-          "
-          ><img
-            src="https://ssl.gstatic.com/atari/images/sociallinks/instagram_white_44dp.png"
-            alt="instagram"
-            class="social"
-        /></a>
-      </div>
-      <div class="small-footer">Email: Asher@AsherQuazar.com</div>
-    </div>
-  </div>
-</body>
-
-<script type="text/javascript" src="../src/set-colors.js"></script>
-<script type="text/javascript" src="../src/draw-stars.js"></script>
-<script type="text/javascript" src="../src/draw-mars.js"></script>
-<script type="text/javascript" src="../src/draw-canvas-home.js"></script>
-<script type="text/javascript" src="../src/mailer.js"></script>
-<script type="text/javascript" src="../src/animator.js"></script>
