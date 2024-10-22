@@ -1,5 +1,4 @@
-
-  //record an array of stars
+ //record an array of stars
   const starNum = 50;
   const starSize = 4;
   var stepA = 0.25;
@@ -69,11 +68,13 @@
   document.addEventListener("DOMContentLoaded", () => {
     resizeCanvas();
 });
+  let interval;
   window.onload = function () {
     window.addEventListener("resize", resizeCanvas, false);
     drawBack();
     drawMars();
     starArray = makeStars();
+    clearInterval(interval);
     setInterval(render, 50);
     resizeCanvas();//sometime it loads incorrectly on mobile, so resize again
   };
