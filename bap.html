@@ -35,8 +35,26 @@
     <canvas id="mars"></canvas>
   </div>
 
-  <div id="book-search">
-    <h1>BOOK SEARCH GOES HERE</h1>
+  <h1>November Book List</h1>
+  <div>
+    <!-- Search Filters -->
+    <div class="filters">
+      <input type="text" id="search-title" placeholder="Search">
+      <select id="search-genre">
+        <option value="">All Genres</option>
+        <!-- Genre options will be populated here dynamically -->
+      </select>
+      <select id="search-rep">
+        <option value="">All Rep</option>
+        <!-- Rep options will be populated here dynamically -->
+      </select>
+      <label for="price-range">Minimum donation:</label>
+      <input type="range" id="price-range" min="0" max="100" value="0">
+      <span id="price-value">0%</span>
+    </div>
+
+    <!-- Book List -->
+    <div id="book-list" class="book-list"></div>
   </div>
 
   <hr class="dark" />
@@ -75,7 +93,8 @@
 
   <div>
     <p style="width: 70%;  margin-left: auto; margin-right: auto; text-align: center; color: #646c8b; font-size: 16px;">
-      Disclaimer:The BAP team reserves the right to revoke author participation at any time. The BAP team does not perform a review
+      Disclaimer: The BAP team reserves the right to revoke author participation at any time. The BAP team does not
+      perform a review
       of authors’ views or the content of their novels. The BAP team audit cannot guarantee with absolute certainty that
       authors donate the revenue promised. The BAP team is not affiliated with Amazon or any of the listed charities.
     </p>
@@ -116,7 +135,6 @@
 <script type="text/javascript" src="./src/js/set-colors.js"></script>
 <script type="text/javascript" src="./src/js/draw-stars.js"></script>
 <script type="text/javascript" src="./src/js/draw-mars.js"></script>
-<script type="text/javascript" src="./src/js/draw-drip.js"></script>
 <script type="text/javascript" src="./src/js/draw-canvas-bap.js"></script>
 <script type="text/javascript" src="./src/js/mailer.js"></script>
-<script type="text/javascript" src="./src/js/animator.js"></script>
+<script type="text/javascript" src="./src/js/book-search.js"></script>
