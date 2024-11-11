@@ -121,11 +121,12 @@ function displayBooks(filteredBooks) {
                 <div class="pair">
                     <p>Ebook:</p>
                     <span class="center">$${book.e_price.toFixed(2)}</span>
-                    <p>Print:</p>
-                    <span class="center">$${book.p_price.toFixed(2)}</span>
-                </div>
-            </div>
-        `;
+            ${book.p_price >= 0 ? `
+            <p>Print:</p>
+            <span class="center">$${book.p_price.toFixed(2)}</span>` : ''}
+        </div>
+    </div>
+`;
         bookList.appendChild(bookCard);
     });
 }
