@@ -43,6 +43,23 @@ br {
   margin-top: 30px;
 }
 
+#head-content img{
+  width: 100%;           
+  height: 100%;         
+  object-fit: contain;
+  display: flex;
+}
+.img-cont{
+  height: 70%;    
+  overflow: hidden;
+}
+#head-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 #overlay {
   position: absolute;
   z-index: 2;
