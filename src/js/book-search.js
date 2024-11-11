@@ -1,19 +1,19 @@
-extraReps = ['gay', 'trans', 'lesbian', 'bisexual', 'non-binary', 'Black', 'latino'];
+extraReps = ['gay', 'trans', 'sapphic', 'bisexual', 'non-binary', 'Black', 'Latine', 'Asian', 'Indigenous', 'aro/ace', 'disabled'];
 
 const books = [
     {
         title: 'Bleeding Mars',
-        genre: ['Sci-Fi'],
+        genre: ['Sci-Fi', 'LGBT'],
         author: 'Asher J. Quazar',
         url: 'https://www.amazon.com/Bleeding-Mars-Vampire-Dystopian-Sci-Fi-ebook/dp/B0D5GRJXGM',
         charity: 'The Trevor Project',
         charity_url: 'https://www.thetrevorproject.org/',
         e_price: 5.99,
         p_price: 16.99,
-        discount: 100,
-        image: '/src/imgs/bap-covers/1.jpg',
-        description: 'A gripping tale of queer space vampires and intrigue.',
-        rep: ['trans author', 'trans MC', 'gay author', 'gay MC']
+        donation: 100,
+        image: './src/imgs/bap-covers/1.jpg',
+        description: 'When a young man on the run from a criminal bounty flees to the neon-soaked streets of Chryse City, he becomes entangled with an immortal who keeps more secrets than friends.',
+        rep: ['trans author', 'trans MC', 'gay author', 'gay MC', 'non-binary character', 'Latine MC']
     },
     {
         title: 'Galactic Heist',
@@ -24,10 +24,10 @@ const books = [
         charity_url: 'https://www.thetrevorproject.org/',
         e_price: 5.99,
         p_price: 16.99,
-        discount: 50,
+        donation: 50,
         image: 'https://via.placeholder.com/200x300?text=Galactic+Heist',
         description: 'Join the heist of the millennium across galaxies.',
-        rep: ['non-binary side character', 'disabled character']
+        rep: ['non-binary character', 'disabled character']
     },
     {
         title: 'The Enchanted Grove',
@@ -38,41 +38,40 @@ const books = [
         charity_url: 'https://www.thetrevorproject.org/',
         e_price: 5.99,
         p_price: 16.99,
-        discount: 10,
+        donation: 10,
         image: 'https://via.placeholder.com/200x300?text=Enchanted+Grove',
         description: 'A magical adventure through the world of fae.',
-        rep: ['sapphic author', 'lesbian MC']
+        rep: ['sapphic author', 'sapphic MC', 'Asian character']
     },
     {
         title: 'Heartstrings',
-        genre: ['Romance'],
+        genre: ['Romance', 'Erotica'],
         author: 'Your Mom',
         url: 'https://www.amazon.com/Bleeding-Mars-Vampire-Dystopian-Sci-Fi-ebook/dp/B0D5GRJXGM',
         charity: 'The Trevor Project',
         charity_url: 'https://www.thetrevorproject.org/',
         e_price: 5.99,
         p_price: 16.99,
-        discount: 25,
+        donation: 25,
         image: 'https://via.placeholder.com/200x300?text=Heartstrings',
         description: 'A heartwarming romance story that will melt your heart.',
-        rep: ['bisexual MC', 'aro author']
+        rep: ['bisexual MC', 'aro/ace author', 'Indigenous MC']
     },
     {
         title: 'Mystic Shadows',
-        genre: ['Thriller'],
+        genre: ['Thriller', 'Horror'],
         author: 'Mary Sue',
         url: 'https://www.amazon.com/Bleeding-Mars-Vampire-Dystopian-Sci-Fi-ebook/dp/B0D5GRJXGM',
         charity: 'The Trevor Project',
         charity_url: 'https://www.thetrevorproject.org/',
         e_price: 5.99,
-        p_price: 16.99,
-        discount: 100,
+        p_price: -1,
+        donation: 100,
         image: 'https://via.placeholder.com/200x300?text=Mystic+Shadows',
         description: 'A thriller that will keep you on the edge of your seat.',
-        rep: ['Black author', 'gay side character']
+        rep: ['Black author', 'gay character', 'autistic MC']
     }
 ];
-
 
 const bookList = document.getElementById('book-list');
 const searchTitle = document.getElementById('search-title');
@@ -84,16 +83,15 @@ function displayBooks(filteredBooks) {
     bookList.innerHTML = '';
     filteredBooks.forEach(book => {
         let sticker = "c-sticker";
-        if (book.discount === 100) {
+        if (book.donation === 100) {
             sticker = "a-sticker";
-        } else if (book.discount >= 50) {
+        } else if (book.donation >= 50) {
             sticker = "b-sticker";
         }
 
         const bookCard = document.createElement('a');
         bookCard.classList.add('book-card');
 
-        // Convert the genre and rep arrays to comma-separated strings
         const genreList = book.genre.join(', ');
         const repList = book.rep ? book.rep.join(', ') : 'No representation listed';
 
@@ -113,7 +111,7 @@ function displayBooks(filteredBooks) {
                         <p class="center" style="margin: 30px 0">Author pledge amount:</p>
                     </div>
                     <div>
-                        <p class="${sticker} center">${book.discount}%</p>   
+                        <p class="${sticker} center">${book.donation}%</p>   
                     </div>
                 </div>
                 <div class="pair">
@@ -136,9 +134,8 @@ function displayBooks(filteredBooks) {
 function filterBooks() {
     const searchValue = searchTitle.value.trim();
     const genreValue = searchGenre.value.toLowerCase();
-    const discountValue = parseInt(priceRange.value); // Assume priceRange is now a range for discount
+    const donationValue = parseInt(priceRange.value);
 
-    // Check if searchValue contains quoted text (e.g., "exact phrase")
     const exactMatchRegex = /"([^"]+)"/;
     const exactMatch = searchValue.match(exactMatchRegex);
 
@@ -146,16 +143,13 @@ function filterBooks() {
     let searchExact = '';
 
     if (exactMatch) {
-        // If a quoted text is found, set it as exact match and remove it from the search value
         searchExact = exactMatch[1].toLowerCase();
         searchWords = searchValue.replace(exactMatchRegex, '').trim().split(' ').filter(word => word.length > 0);
     } else {
-        // If no quoted text is found, treat the whole search value as individual words
         searchWords = searchValue.split(' ').filter(word => word.length > 0);
     }
 
     const filteredBooks = books.filter(book => {
-        // First check for exact match if searchExact is set
         const matchesExact = searchExact ? (
             book.title.toLowerCase().includes(searchExact) ||
             book.author.toLowerCase().includes(searchExact) ||
@@ -163,8 +157,6 @@ function filterBooks() {
             (book.rep && book.rep.join(', ').toLowerCase().includes(searchExact)) ||
             book.genre.join(', ').toLowerCase().includes(searchExact)
         ) : true;
-
-        // Then check for the regular word search
         const matchesText = searchWords.every(word => {
             return (
                 book.title.toLowerCase().includes(word) ||
@@ -175,43 +167,31 @@ function filterBooks() {
             );
         });
 
-        // Check if the selected genre matches any of the genres in the book's array
         const matchesGenre = genreValue === '' || book.genre.some(g => g.toLowerCase() === genreValue);
-
-        // Check if the book's discount is within the specified range
-        const matchesDiscount = book.discount >= discountValue;
-
-        // Return true if both exact match and word match criteria are satisfied
-        return matchesExact && matchesText && matchesGenre && matchesDiscount;
+        const matchesdonation = book.donation >= donationValue;
+        return matchesExact && matchesText && matchesGenre && matchesdonation;
     });
 
     displayBooks(filteredBooks);
 }
 
-
-// Event Listeners for Filters
 searchTitle.addEventListener('input', filterBooks);
 searchGenre.addEventListener('change', filterBooks);
-document.getElementById('search-rep').addEventListener('change', filterBooks); // Added event listener for rep filter
+document.getElementById('search-rep').addEventListener('change', filterBooks);
 priceRange.addEventListener('input', () => {
     priceValue.textContent = `${priceRange.value}%`;
     filterBooks();
 });
 
-// Helper function to generate all possible subsets of a given array
 function generateCombinations(arr) {
     const result = [];
 
     arr.forEach(phrase => {
-        // Split the phrase into words
         const words = phrase.split(' ');
-
-        // Add all single word combinations to the result
         words.forEach(word => {
             result.push(word);
         });
 
-        // Add all two-word combinations to the result
         for (let i = 0; i < words.length - 1; i++) {
             for (let j = i + 1; j < words.length; j++) {
                 result.push(words.slice(i, j + 1).join(' '));
@@ -222,15 +202,11 @@ function generateCombinations(arr) {
     return result;
 }
 
-// Function to populate filter options dynamically
 function populateFilters() {
     const genreSelect = document.getElementById('search-genre');
     const repSelect = document.getElementById('search-rep');
-
-    // Get unique genres from the books array
     const genres = [...new Set(books.flatMap(book => book.genre))];
 
-    // Populate genre filter
     genres.forEach(genre => {
         const option = document.createElement('option');
         option.value = genre;
@@ -238,10 +214,8 @@ function populateFilters() {
         genreSelect.appendChild(option);
     });
 
-    // Get unique representations from the books array
     const reps = [...extraReps.sort(), ...[...new Set(books.flatMap(book => book.rep))].sort()];
 
-    // Populate rep filter
     (reps).forEach(rep => {
         const option = document.createElement('option');
         option.value = rep;
@@ -250,9 +224,5 @@ function populateFilters() {
     });
 }
 
-// Call the populateFilters function to dynamically populate options
 populateFilters();
-
-
-// Initial Display
 displayBooks(books);
