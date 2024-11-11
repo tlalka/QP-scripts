@@ -96,6 +96,7 @@ function displayBooks(filteredBooks) {
         const repList = book.rep ? book.rep.join(', ') : 'No representation listed';
 
         bookCard.href = book.url;
+        bookCard.target = "_blank";
         bookCard.innerHTML = `
             <img src="${book.image}" alt="${book.title}" style="flex:1">
             <div class='book-deets'>
@@ -116,7 +117,7 @@ function displayBooks(filteredBooks) {
                 </div>
                 <div class="pair">
                     <p>Charity:</p>
-                    <a class="center" href="${book.charity_url}">${book.charity}</a>
+                    <a target="_blank" class="center" href="${book.charity_url}">${book.charity}</a>
                 </div>
                 <div class="pair">
                     <p>Ebook:</p>
