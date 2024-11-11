@@ -381,7 +381,7 @@ img.social {
 /*mobile*/
 @media (max-width: 1000px) {
   #book-container {
-    height: 700px;
+    height: 750px;
   }
   .filters {
     flex-direction: column;
