@@ -21,17 +21,17 @@ body {
 }
 
 h1 {
-  font-family: "Eagle Lake";
+  font-family: "Lugrasimo";
   text-align: center;
 }
 
 h2 {
-  font-family: "Eagle Lake";
+  font-family: "Lugrasimo";
   text-align: center;
 }
 
 h3 {
-  font-family: "Eagle Lake";
+  font-family: "Lugrasimo";
   text-align: center;
 }
 
@@ -77,6 +77,7 @@ hr.dark {
 #info{
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 #jump-parent {
@@ -84,11 +85,12 @@ hr.dark {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  font-family: "Eagle Lake";
+  font-family: "Lugrasimo";
 }
 
 .jump-button {
   vertical-align: baseline;
+  font-size: 22px;
   width: 50%;
   padding: 10px;
   flex: 1;
@@ -256,12 +258,12 @@ img.social {
 }
 
 .book-card h2 {
-  font-size: 18px;
+  font-size: 20px;
   margin: 10px 0;
 }
 
 .book-card h3 {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0px 0;
 }
 
@@ -358,4 +360,24 @@ img.social {
   display: flex; 
   justify-content: 
   center; gap: 10px;
+}
+
+/*mobile*/
+@media (max-width: 1000px) {
+  #book-container {
+    height: 700px;
+  }
+  .filters {
+    flex-direction: column;
+  }
+  .book-card {
+    flex-direction: column;
+  }
+  .book-deets{
+    grid-template-rows:auto auto auto auto;
+    height: auto;
+  }
+  .book-card img{
+    max-width: 300px;
+  }
 }
