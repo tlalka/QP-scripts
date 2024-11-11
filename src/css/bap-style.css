@@ -362,7 +362,7 @@ img.social {
 }
 
 /*mobile*/
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
   #book-container {
     height: 700px;
   }
